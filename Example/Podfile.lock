@@ -1,7 +1,5 @@
 PODS:
-  - JCSegmentBarController (0.0.1):
-    - KVOController (~> 1.0.3)
-  - KVOController (1.0.3)
+  - JCSegmentBarController (1.0.0)
 
 DEPENDENCIES:
   - JCSegmentBarController (from `../`)
@@ -11,7 +9,8 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  JCSegmentBarController: b22cb3db793cb630bc6ed306eee67136ecae7ad4
-  KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
+  JCSegmentBarController: 1235ab5373054e2aef0d76f08e141145782f2091
 
-COCOAPODS: 0.37.0
+PODFILE CHECKSUM: dbfdb47f5e38ac09d785e74a21ef5e928eae4391
+
+COCOAPODS: 1.2.0.beta.1

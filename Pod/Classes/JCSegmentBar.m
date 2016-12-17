@@ -26,8 +26,7 @@
 
 static NSString * const reuseIdentifier = @"segmentBarItemId";
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.sectionInset = UIEdgeInsetsZero;
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -46,13 +45,15 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
         self.selectedTintColor = [UIColor redColor];
         self.translucent = YES;
         self.height = 36.0f;
+        
+        [self addSubview:self.bottomLineView];
+        [self addSubview:self.lineView];
     }
     
     return self;
 }
 
-- (void)didMoveToSuperview
-{
+- (void)didMoveToSuperview {
     self.segmentBarController = (JCSegmentBarController *)[self getViewController];
     
     self.itemWidth = [UIScreen mainScreen].bounds.size.width/MIN(self.segmentBarController.viewControllers.count, 5);
@@ -77,32 +78,27 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
     #pragma clang diagnostic pop
 }
 
-- (void)layoutSubviews
-{
+- (void)layoutSubviews {
     [super layoutSubviews];
     
     self.lineView.frame = CGRectMake(0, self.frame.size.height-0.5, self.contentSize.width, 0.5);
 }
 
-- (void)didSeletedSegmentBarItem:(JCSegmentBarItemSeletedBlock)seletedBlock
-{
+- (void)didSeletedSegmentBarItem:(JCSegmentBarItemSeletedBlock)seletedBlock {
     self.seletedBlock = seletedBlock;
 }
 
 #pragma mark - UICollectionViewDelegate | UICollectionViewDataSource
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.segmentBarController.viewControllers.count;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(self.itemWidth, self.frame.size.height);
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UIViewController *vc = self.segmentBarController.viewControllers[indexPath.item];
 
     JCSegmentBarItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
@@ -139,49 +135,46 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
     return item;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.seletedBlock) {
         self.seletedBlock(indexPath.item);
     }
 }
 
-#pragma mark -
+#pragma mark - setter/getter
 
-- (void)setBarTintColor:(UIColor *)barTintColor
-{
+- (void)setBarTintColor:(UIColor *)barTintColor {
     _barTintColor = barTintColor;
     
     self.backgroundColor = _barTintColor;
 }
 
-- (void)setSelectedTintColor:(UIColor *)selectedTintColor
-{
+- (void)setSelectedTintColor:(UIColor *)selectedTintColor {
     _selectedTintColor = selectedTintColor;
     
-    if (!_bottomLineView) {
-        _bottomLineView = [[UIView alloc] initWithFrame:CGRectZero];
-        
-        [self addSubview:_bottomLineView];
-    }
-    
-    _bottomLineView.backgroundColor = _selectedTintColor;
+    self.bottomLineView.backgroundColor = _selectedTintColor;
 }
 
-- (UIView *)lineView
-{
+- (UIView *)lineView {
     if (!_lineView) {
         _lineView = [[UIView alloc] initWithFrame:CGRectZero];
         _lineView.backgroundColor = [UIColor lightGrayColor];
-        
-        [self addSubview:_lineView];
     }
     
     return _lineView;
 }
 
-- (UIViewController *)getViewController
-{
+- (UIView *)bottomLineView {
+    if (!_bottomLineView) {
+        _bottomLineView = [[UIView alloc] initWithFrame:CGRectZero];
+    }
+    
+    return _bottomLineView;
+}
+
+#pragma mark - private
+
+- (UIViewController *)getViewController {
     UIResponder *responder = [self nextResponder];
     
     while (responder) {

@@ -18,58 +18,61 @@
 
 @implementation JCSegmentBarItem
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         _title = @"";
-        _titleLabel = [[UILabel alloc] initWithFrame:self.bounds];
-        _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.font = [UIFont systemFontOfSize:14.0f];
-        [self.contentView addSubview:_titleLabel];
+        
+        [self.contentView addSubview:self.titleLabel];
     }
     
     return self;
 }
 
-- (void)layoutSubviews
-{
+- (void)layoutSubviews {
     [super layoutSubviews];
     
     self.titleLabel.frame = self.bounds;
 }
 
-- (void)prepareForReuse
-{
+- (void)prepareForReuse {
     [super prepareForReuse];
     
     self.titleLabel.text = @"";
 }
 
-#pragma mark -
+#pragma mark - setter/getter
 
-- (void)setTitle:(NSString *)title
-{
+- (void)setTitle:(NSString *)title {
     _title = title;
     
     self.titleLabel.text = title;
 }
 
-- (void)setTextColor:(UIColor *)textColor
-{
+- (void)setTextColor:(UIColor *)textColor {
     _textColor = textColor;
     
     [self changeTitleLabelTextColor];
 }
 
-- (void)setBadgeColor:(UIColor *)badgeColor
-{
+- (void)setBadgeColor:(UIColor *)badgeColor {
     _badgeColor = badgeColor;
     
     [self changeTitleLabelTextColor];
 }
 
-- (void)changeTitleLabelTextColor
-{
+- (UILabel *)titleLabel {
+    if (!_titleLabel) {
+        _titleLabel = [[UILabel alloc] initWithFrame:self.bounds];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    }
+    
+    return _titleLabel;
+}
+
+#pragma mark - private
+
+- (void)changeTitleLabelTextColor {
     NSInteger location = [self.title rangeOfString:@" "].location;
     
     if (location != NSNotFound) {

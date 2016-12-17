@@ -16,8 +16,7 @@
 
 @implementation JCAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     
     JCViewController *vc1 = [storyboard instantiateViewControllerWithIdentifier:@"JCViewController"];
@@ -61,8 +60,9 @@
     return YES;
 }
 
-- (void)segmentBarController:(JCSegmentBarController *)segmentBarController didSelectItem:(JCSegmentBarItem *)item
-{
+#pragma mark - JCSegmentBarControllerDelegate
+
+- (void)segmentBarController:(JCSegmentBarController *)segmentBarController didSelectItem:(JCSegmentBarItem *)item {
     NSLog(@"%s: selectedIndex: %ld,title: %@", __func__, (long)segmentBarController.selectedIndex, item.title);
 }
 

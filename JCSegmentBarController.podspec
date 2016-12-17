@@ -9,17 +9,14 @@
 
 Pod::Spec.new do |s|
   s.name             = "JCSegmentBarController"
-  s.version          = "0.0.7"
+  s.version          = "1.0.0"
   s.summary          = "Simple to use and support horizontally-scrolling."
   s.homepage         = "http://lijingcheng.github.io/"
   s.license          = 'MIT'
   s.author           = { "lijingcheng" => "bj_lijingcheng@163.com" }
   s.source           = { :git => "https://github.com/lijingcheng/JCSegmentBarController.git", :tag => s.version.to_s }
   s.social_media_url = 'http://weibo.com/lijingcheng1984'
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '8.0'
   s.requires_arc = true
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'JCSegmentBarController' => ['Pod/Assets/*.png']
-  }
 end
