@@ -1,28 +1,31 @@
 //
-//  JCViewController.m
+//  JCTableViewController.m
 //  JCSegmentBarController
 //
-//  Created by 李京城 on 15/5/22.
-//  Copyright (c) 2015年 lijingcheng. All rights reserved.
+//  Created by 李京城 on 2016/12/17.
+//  Copyright © 2016年 lijingcheng. All rights reserved.
 //
 
-#import "JCViewController.h"
+#import "JCTableViewController.h"
 #import "JCSegmentBarController.h"
 
-@implementation JCViewController
+@implementation JCTableViewController
+
+static NSString * const reuseIdentifier = @"cellId";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:reuseIdentifier];
 }
+
+#pragma mark - UITableViewDelegate | UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 20;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString * const reuseIdentifier = @"cellId";
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@, %ld", self.title, (long)indexPath.row];
     
@@ -36,3 +39,4 @@
 }
 
 @end
+

@@ -13,7 +13,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* JCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* JCAppDelegate.m */; };
-		6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6003F59F195388D20070C39A /* Main_iPhone.storyboard */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -22,7 +21,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		AA4A2BCD4BE7C22FA3275540 /* libPods-JCSegmentBarController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6634EA4E03CA85BF557087 /* libPods-JCSegmentBarController.a */; };
 		B4A6B2227B037894DDEEB9A2 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7EB013CD65504E7D5EA79B /* libPods-Tests.a */; };
-		F372F9831B0F2F30004169D3 /* JCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F372F9821B0F2F30004169D3 /* JCViewController.m */; };
+		F3FE32A21E04F3EF0074E213 /* JCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3FE32A01E04F3EF0074E213 /* JCTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +50,6 @@
 		6003F59B195388D20070C39A /* JCSegmentBarController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JCSegmentBarController-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* JCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* JCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A0195388D20070C39A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -62,9 +60,9 @@
 		65CF078A7185441D8D6E84C7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6FBB7E1CC995D5DBE94F643F /* JCSegmentBarController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JCSegmentBarController.podspec; path = ../JCSegmentBarController.podspec; sourceTree = "<group>"; };
 		9873ABAB91E26354E1FEA627 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		F372F9811B0F2F30004169D3 /* JCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCViewController.h; sourceTree = "<group>"; };
-		F372F9821B0F2F30004169D3 /* JCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCViewController.m; sourceTree = "<group>"; };
 		F3C46624002D168781AD522E /* Pods-JCSegmentBarController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCSegmentBarController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JCSegmentBarController/Pods-JCSegmentBarController.debug.xcconfig"; sourceTree = "<group>"; };
+		F3FE329F1E04F3EF0074E213 /* JCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTableViewController.h; sourceTree = "<group>"; };
+		F3FE32A01E04F3EF0074E213 /* JCTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,8 +141,8 @@
 			children = (
 				6003F59C195388D20070C39A /* JCAppDelegate.h */,
 				6003F59D195388D20070C39A /* JCAppDelegate.m */,
-				F372F9811B0F2F30004169D3 /* JCViewController.h */,
-				F372F9821B0F2F30004169D3 /* JCViewController.m */,
+				F3FE329F1E04F3EF0074E213 /* JCTableViewController.h */,
+				F3FE32A01E04F3EF0074E213 /* JCTableViewController.m */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
 			path = JCSegmentBarController;
@@ -153,7 +151,6 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6003F59F195388D20070C39A /* Main_iPhone.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F595195388D20070C39A /* JCSegmentBarController-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
@@ -276,7 +273,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
-				6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,8 +385,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3FE32A21E04F3EF0074E213 /* JCTableViewController.m in Sources */,
 				6003F59E195388D20070C39A /* JCAppDelegate.m in Sources */,
-				F372F9831B0F2F30004169D3 /* JCViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,14 +416,6 @@
 				6003F597195388D20070C39A /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		6003F59F195388D20070C39A /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6003F5A0195388D20070C39A /* Base */,
-			);
-			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		6003F5B8195388D20070C39A /* InfoPlist.strings */ = {

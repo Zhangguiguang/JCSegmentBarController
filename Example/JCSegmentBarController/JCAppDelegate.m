@@ -7,7 +7,7 @@
 //
 
 #import "JCAppDelegate.h"
-#import "JCViewController.h"
+#import "JCTableViewController.h"
 #import "JCSegmentBarController.h"
 
 @interface JCAppDelegate ()<JCSegmentBarControllerDelegate>
@@ -17,26 +17,24 @@
 @implementation JCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    
-    JCViewController *vc1 = [storyboard instantiateViewControllerWithIdentifier:@"JCViewController"];
+    JCTableViewController *vc1 = [[JCTableViewController alloc] init];
     vc1.title = @"fruit";
     vc1.badgeValue = @"2";
-    JCViewController *vc2 = [storyboard instantiateViewControllerWithIdentifier:@"JCViewController"];
+    JCTableViewController *vc2 = [[JCTableViewController alloc] init];
     vc2.title = @"apple";
     vc2.badgeValue = @"3";
-    JCViewController *vc3 = [storyboard instantiateViewControllerWithIdentifier:@"JCViewController"];
+    JCTableViewController *vc3 = [[JCTableViewController alloc] init];
     vc3.title = @"banana";
     vc3.badgeValue = @"1";
-    JCViewController *vc4 = [storyboard instantiateViewControllerWithIdentifier:@"JCViewController"];
+    JCTableViewController *vc4 = [[JCTableViewController alloc] init];
     vc4.title = @"pomelo";
-    JCViewController *vc5 = [storyboard instantiateViewControllerWithIdentifier:@"JCViewController"];
+    JCTableViewController *vc5 = [[JCTableViewController alloc] init];
     vc5.title = @"orange";
-    JCViewController *vc6 = [storyboard instantiateViewControllerWithIdentifier:@"JCViewController"];
+    JCTableViewController *vc6 = [[JCTableViewController alloc] init];
     vc6.title = @"cherry";
-    JCViewController *vc7 = [storyboard instantiateViewControllerWithIdentifier:@"JCViewController"];
+    JCTableViewController *vc7 = [[JCTableViewController alloc] init];
     vc7.title = @"grape";
-    JCViewController *vc8 = [storyboard instantiateViewControllerWithIdentifier:@"JCViewController"];
+    JCTableViewController *vc8 = [[JCTableViewController alloc] init];
     vc8.title = @"lemon";
     
     JCSegmentBarController *segmentBarController = [[JCSegmentBarController alloc] initWithViewControllers:@[vc1, vc2, vc3, vc4, vc5, vc6, vc7, vc8]];
@@ -51,7 +49,13 @@
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:segmentBarController];
     nav.navigationBar.barTintColor = [UIColor orangeColor];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = nav;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    
     
 //    UITabBarController *tabBarController = [[UITabBarController alloc] init];
 //    tabBarController.viewControllers = @[nav];
