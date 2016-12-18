@@ -41,6 +41,8 @@
     segmentBarController.title = @"JCSegmentBarController";
     segmentBarController.delegate = self;
     segmentBarController.selectedIndex = 3;
+    segmentBarController.segmentBar.selectedFont = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
+    segmentBarController.segmentBar.unSelectedFont = [UIFont systemFontOfSize:11 weight:UIFontWeightLight];
 //    segmentBarController.segmentBar.barTintColor = [UIColor yellowColor];
 //    segmentBarController.segmentBar.tintColor = [UIColor blueColor];
 //    segmentBarController.segmentBar.selectedTintColor = [UIColor purpleColor];
