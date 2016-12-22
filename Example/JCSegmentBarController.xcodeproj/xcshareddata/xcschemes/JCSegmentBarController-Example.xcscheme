@@ -38,6 +38,16 @@
                ReferencedContainer = "container:JCSegmentBarController.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F316C27E1E0BDE1E006375AE"
+               BuildableName = "JCSegmentBarController_Tests.xctest"
+               BlueprintName = "JCSegmentBarController_Tests"
+               ReferencedContainer = "container:JCSegmentBarController.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

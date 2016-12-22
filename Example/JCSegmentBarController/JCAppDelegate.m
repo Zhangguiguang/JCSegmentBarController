@@ -55,11 +55,11 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    
-    
 //    UITabBarController *tabBarController = [[UITabBarController alloc] init];
 //    tabBarController.viewControllers = @[nav];
 //    self.window.rootViewController = tabBarController;
+    
+    NSLog(@"\n\n🍀🍀🍀 The warnings in the console can be ignored, the actual use of lib will not exist. 🍀🍀🍀\n\n");
     
     return YES;
 }
