@@ -70,6 +70,17 @@
     return _titleLabel;
 }
 
+- (void)setSelectedFont:(UIFont *)selectedFont {
+    _selectedFont = selectedFont;
+    
+    self.titleLabel.font = selectedFont;
+}
+
+- (void)setUnSelectedFont:(UIFont *)unSelectedFont {
+    _unSelectedFont = unSelectedFont;
+    self.titleLabel.font = unSelectedFont;
+}
+
 #pragma mark - private
 
 - (void)changeTitleLabelTextColor {

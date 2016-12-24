@@ -155,12 +155,21 @@ static NSString * const reuseIdentifier = @"contentCellId";
         if ([self.delegate respondsToSelector:@selector(segmentBarController:didSelectItem:)]) {
             [self.delegate segmentBarController:self didSelectItem:item];
         }
+        
+        if (self.didSeletedController) {
+            self.didSeletedController(self.selectedViewController);
+        }
     }
 }
 
 - (void)selected:(JCSegmentBarItem *)selectedItem unSelected:(JCSegmentBarItem *)unSelectedItem {
+//    selectedItem.textColor = self.segmentBar.selectedTintColor;
+//    unSelectedItem.textColor = self.segmentBar.tintColor;
+    
     selectedItem.textColor = self.segmentBar.selectedTintColor;
+    selectedItem.selectedFont = self.segmentBar.selectedFont;
     unSelectedItem.textColor = self.segmentBar.tintColor;
+    unSelectedItem.unSelectedFont = self.segmentBar.unSelectedFont;
     
     CGFloat duration = unSelectedItem ? 0.3f : 0.0f;
     
