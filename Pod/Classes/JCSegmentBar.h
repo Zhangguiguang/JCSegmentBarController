@@ -16,9 +16,11 @@ typedef void (^JCSegmentBarItemSeletedBlock)(NSInteger index);
 @property (nonatomic, strong) UIColor *tintColor;
 @property (nonatomic, strong) UIColor *barTintColor;
 @property (nonatomic, strong) UIColor *selectedTintColor;
-@property (nonatomic, assign) CGFloat height;
+
 @property (nonatomic, strong) UIFont *selectedFont;
 @property (nonatomic, strong) UIFont *unSelectedFont;
+
+@property (nonatomic, assign) CGFloat height;
 
 @property (nonatomic, strong) UIView *bottomLineView;
 

@@ -27,6 +27,7 @@
 @property (nonatomic, assign) NSInteger selectedIndex;
 @property (nonatomic, weak) JCSegmentBarItem *selectedItem;
 @property (nonatomic, weak) UIViewController *selectedViewController;
+
 @property (nonatomic, copy) void (^didSeletedController)(UIViewController *controller);
 
 

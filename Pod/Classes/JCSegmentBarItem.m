@@ -78,6 +78,7 @@
 
 - (void)setUnSelectedFont:(UIFont *)unSelectedFont {
     _unSelectedFont = unSelectedFont;
+    
     self.titleLabel.font = unSelectedFont;
 }
 

@@ -11,8 +11,10 @@
 @interface JCSegmentBarItem : UICollectionViewCell
 
 @property (nonatomic, copy) NSString *title;
+
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic, strong) UIColor *badgeColor;
+
 @property (nonatomic, strong) UIFont *selectedFont;
 @property (nonatomic, strong) UIFont *unSelectedFont;
 

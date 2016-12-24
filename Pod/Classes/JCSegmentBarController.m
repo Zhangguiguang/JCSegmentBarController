@@ -163,11 +163,9 @@ static NSString * const reuseIdentifier = @"contentCellId";
 }
 
 - (void)selected:(JCSegmentBarItem *)selectedItem unSelected:(JCSegmentBarItem *)unSelectedItem {
-//    selectedItem.textColor = self.segmentBar.selectedTintColor;
-//    unSelectedItem.textColor = self.segmentBar.tintColor;
-    
     selectedItem.textColor = self.segmentBar.selectedTintColor;
     selectedItem.selectedFont = self.segmentBar.selectedFont;
+    
     unSelectedItem.textColor = self.segmentBar.tintColor;
     unSelectedItem.unSelectedFont = self.segmentBar.unSelectedFont;
     

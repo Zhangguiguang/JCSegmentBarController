@@ -15,13 +15,13 @@ Simple to use and support horizontally-scrolling.
 Installation with CocoaPods
 
 ```
-pod "JCSegmentBarController", "1.0.0"
+pod "JCSegmentBarController", "1.0.1"
 ```
 
 Installation with Carthage
 
 ```
-github "lijingcheng/JCSegmentBarController" ~> 1.0.0
+github "lijingcheng/JCSegmentBarController" == 1.0.1
 ```
 
 ## Usage
