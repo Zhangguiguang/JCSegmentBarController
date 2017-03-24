@@ -15,8 +15,9 @@ NSString *const kJCSegmentItemDidChangeNotification = @"kJCSegmentItemDidChangeN
 @interface JCSegmentBar ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) UIView *itemBottomLineView;
+@property (nonatomic, strong) CALayer *barBottomLineLayer;
 
-@property (nonatomic, copy) JCSegmentBarItemSeletedBlock seletedBlock;
+@property (nonatomic, copy) JCSegmentBarItemSelectedBlock selectedBlock;
 
 @property (nonatomic, strong) id notificationObserver;
 
@@ -33,32 +34,19 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
     flowLayout.minimumInteritemSpacing = 0;
     
     if (self = [super initWithFrame:frame collectionViewLayout:flowLayout]) {
-        // add bottom border line
-        CALayer *bottomBorder = [CALayer layer];
-        bottomBorder.frame = CGRectMake(0, self.frame.size.height-0.5, self.contentSize.width, 0.5);
-        bottomBorder.backgroundColor = [UIColor colorWithRed:151/255.0f green:151/255.0f blue:151/255.0f alpha:1].CGColor;
-        [self.layer addSublayer:bottomBorder];
-        
         // for collectionView
         self.delegate = self;
         self.dataSource = self;
+        self.bounces = NO;
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
-        [self registerClass:[JCSegmentBarItemView class] forCellWithReuseIdentifier:reuseIdentifier];
         
-        // other settings
-        self.barStyle = JCSegmentBarStyleDark;
-
+        self.customItemViewName = NSStringFromClass([JCSegmentBarItemView class]);
+        self.barStyle = JCSegmentBarStyleLight;
         [self addSubview:self.itemBottomLineView];
         
         self.notificationObserver = [[NSNotificationCenter defaultCenter] addObserverForName:kJCPageControllerDidChangeNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-            self.selectedIndex = [note.userInfo[@"selectIndex"] integerValue];
-            [self reloadData];
-            [UIView animateWithDuration:0.3f animations:^{
-                self.itemBottomLineView.frame = [self itemBottomLineViewFrame];
-            } completion:^(BOOL finished) {
-                
-            }];
+            [self segmentBarItemDidChange:[NSIndexPath indexPathForItem:self.selectedIndex inSection:0] currentIndexPath:[NSIndexPath indexPathForItem:[note.userInfo[@"selectIndex"] integerValue] inSection:0]];
         }];
     }
     
@@ -67,12 +55,14 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+
+    [self.layer addSublayer:self.barBottomLineLayer];
     
     self.itemBottomLineView.frame = [self itemBottomLineViewFrame];
 }
 
-- (void)didSeletedSegmentBarItem:(JCSegmentBarItemSeletedBlock)seletedBlock {
-    self.seletedBlock = seletedBlock;
+- (void)segmentBarItemDidSelected:(JCSegmentBarItemSelectedBlock)selectedBlock {
+    self.selectedBlock = selectedBlock;
 }
 
 #pragma mark - UICollectionViewDelegate & UICollectionViewDataSource
@@ -86,29 +76,18 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    JCSegmentBarItemView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 
     JCSegmentBarItem *item = self.items[indexPath.item];
-    NSLog(@"___%ld,%ld", self.selectedIndex, indexPath.item);
-    if (self.selectedIndex == indexPath.item) {
-        item.titleAttributes = @{NSForegroundColorAttributeName: self.tintColor};
-    } else {
-        item.titleAttributes = @{NSForegroundColorAttributeName: self.unselectedTintColor};
-    }
-    
-    cell.segmentBarItem = item;
+    item.titleColor = (self.selectedIndex == indexPath.item) ? self.tintColor : self.unselectedTintColor;
+
+    [cell setValue:item forKey:@"segmentBarItem"];
 
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    self.selectedIndex = indexPath.item;
-     [collectionView reloadData];
-    [UIView animateWithDuration:0.3f animations:^{
-        self.itemBottomLineView.frame = [self itemBottomLineViewFrame];
-    } completion:^(BOOL finished) {
-       
-    }];
+    [self segmentBarItemDidChange:[NSIndexPath indexPathForItem:self.selectedIndex inSection:0] currentIndexPath:indexPath];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kJCSegmentItemDidChangeNotification object:nil userInfo:@{@"selectIndex": @(self.selectedIndex)}];
 }
@@ -139,6 +118,16 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
     _items = items;
 }
 
+- (CALayer *)barBottomLineLayer {
+    if (!_barBottomLineLayer) {
+        _barBottomLineLayer = [CALayer layer];
+        _barBottomLineLayer.frame = CGRectMake(0, self.frame.size.height-0.5, self.contentSize.width, 0.5);
+        _barBottomLineLayer.backgroundColor = [UIColor colorWithRed:151/255.0f green:151/255.0f blue:151/255.0f alpha:1].CGColor;
+    }
+    
+    return _barBottomLineLayer;
+}
+
 - (UIView *)itemBottomLineView {
     if (!_itemBottomLineView) {
         _itemBottomLineView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -150,10 +139,6 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
     return _itemBottomLineView;
 }
 
-- (CGRect)itemBottomLineViewFrame {
-    return CGRectMake(self.selectedIndex * self.itemWidth + ((self.itemWidth - self.itemBottomLineWidth)/2), self.frame.size.height-2, self.itemBottomLineWidth, 2);
-}
-
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
     if (selectedIndex < 0 || selectedIndex >= self.items.count) {
         return;
@@ -161,8 +146,37 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
     
     _selectedIndex = selectedIndex;
     
-    //- (void)setItems:(NSArray<UITabBarItem *> *)items animated:(BOOL)animated;
     [self scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:selectedIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+}
+
+- (void)setCustomItemViewName:(NSString *)customItemViewName {
+    _customItemViewName = customItemViewName;
+    
+    [self registerClass:[NSClassFromString(self.customItemViewName) class] forCellWithReuseIdentifier:reuseIdentifier];
+}
+
+#pragma mark - private
+
+- (CGRect)itemBottomLineViewFrame {
+    return CGRectMake(self.selectedIndex * self.itemWidth + ((self.itemWidth - self.itemBottomLineWidth)/2), self.frame.size.height-2, self.itemBottomLineWidth, 2);
+}
+
+- (void)segmentBarItemDidChange:(NSIndexPath *)preIndexPath currentIndexPath:(NSIndexPath *)currentIndexPath {
+    UICollectionViewCell *prevCell = [self cellForItemAtIndexPath:preIndexPath];
+    JCSegmentBarItem *prevItem = self.items[self.selectedIndex];
+    prevItem.titleColor = self.unselectedTintColor;
+    [prevCell setValue:prevItem forKey:@"segmentBarItem"];
+
+    UICollectionViewCell *currentCell = [self cellForItemAtIndexPath:currentIndexPath];
+    JCSegmentBarItem *currentItem = self.items[currentIndexPath.item];
+    currentItem.titleColor = self.tintColor;
+    [currentCell setValue:currentItem forKey:@"segmentBarItem"];
+    
+    self.selectedIndex = currentIndexPath.item;
+    
+    [UIView animateWithDuration:0.3f animations:^{
+        self.itemBottomLineView.frame = [self itemBottomLineViewFrame];
+    }];
 }
 
 @end

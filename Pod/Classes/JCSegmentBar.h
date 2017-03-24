@@ -17,11 +17,13 @@ typedef NS_ENUM(NSInteger, JCSegmentBarStyle) {
 extern NSString *const kJCSegmentItemDidChangeNotification;
 
 @class JCSegmentBarItem;
-typedef void (^JCSegmentBarItemSeletedBlock)(NSInteger index);
+typedef void (^JCSegmentBarItemSelectedBlock)(NSInteger index);
 
 @interface JCSegmentBar : UICollectionView
 
 @property (nonatomic, assign) JCSegmentBarStyle barStyle;
+
+@property (nonatomic, copy) NSString *customItemViewName;
 
 @property (nonatomic, copy) NSArray<JCSegmentBarItem *> *items;
 
@@ -33,6 +35,6 @@ typedef void (^JCSegmentBarItemSeletedBlock)(NSInteger index);
 @property (nonatomic, strong) UIColor *tintColor;
 @property (nonatomic, strong) UIColor *unselectedTintColor;
 
-- (void)didSeletedSegmentBarItem:(JCSegmentBarItemSeletedBlock)seletedBlock;
+- (void)segmentBarItemDidSelected:(JCSegmentBarItemSelectedBlock)selectedBlock;
 
 @end

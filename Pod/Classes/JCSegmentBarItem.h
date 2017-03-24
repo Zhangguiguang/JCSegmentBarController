@@ -11,10 +11,9 @@
 @interface JCSegmentBarItem : NSObject
 
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, strong) UIColor *titleColor;
 @property (nonatomic, copy) NSString *badgeValue;
 @property (nonatomic, strong) UIImage *image;
-
-@property (nonatomic, copy) NSDictionary *titleAttributes;
 
 - (instancetype)initWithTitle:(NSString *)title;
 - (instancetype)initWithImage:(UIImage *)image;

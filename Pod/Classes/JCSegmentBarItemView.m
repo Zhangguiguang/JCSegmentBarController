@@ -60,7 +60,8 @@
 - (void)setSegmentBarItem:(JCSegmentBarItem *)segmentBarItem {
     _segmentBarItem = segmentBarItem;
     
-    self.titleLabel.attributedText = [[NSAttributedString alloc] initWithString:segmentBarItem.title attributes:segmentBarItem.titleAttributes];
+    self.titleLabel.text = segmentBarItem.title;
+    self.titleLabel.textColor = segmentBarItem.titleColor;
 
     self.badgeLabel.text = segmentBarItem.badgeValue;
     self.badgeLabel.hidden = !(segmentBarItem.badgeValue && ![segmentBarItem.badgeValue isEqualToString:@""]);
@@ -70,6 +71,7 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.font = [UIFont systemFontOfSize:14];
     }
     
     return _titleLabel;

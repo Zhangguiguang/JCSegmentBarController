@@ -7,11 +7,10 @@
 //
 
 #import "JCSegmentBarController.h"
-#import <objc/runtime.h>
 
 NSString *const kJCPageControllerDidChangeNotification = @"kJCPageControllerDidChangeNotification";
 
-@interface JCSegmentBarController ()<UIPageViewControllerDelegate, UIPageViewControllerDataSource, UIScrollViewDelegate>
+@interface JCSegmentBarController ()<UIPageViewControllerDelegate, UIPageViewControllerDataSource>
 
 @property (nonatomic, strong) UIPageViewController *pageController;
 @property (nonatomic, copy) NSArray<UIViewController *> *pageContent;
@@ -28,10 +27,9 @@ NSString *const kJCPageControllerDidChangeNotification = @"kJCPageControllerDidC
         
         self.notificationObserver = [[NSNotificationCenter defaultCenter] addObserverForName:kJCSegmentItemDidChangeNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
             self.selectedIndex = [note.userInfo[@"selectIndex"] integerValue];
-            NSLog(@"JCSegmentBarController    %ld", self.selectedIndex);
         }];
     }
-    
+
     return self;
 }
 
@@ -87,12 +85,6 @@ NSString *const kJCPageControllerDidChangeNotification = @"kJCPageControllerDidC
     }
 }
 
-#pragma mark - UIScrollViewDelegate
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-
-}
-
 #pragma mark - setter/getter
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
@@ -113,71 +105,10 @@ NSString *const kJCPageControllerDidChangeNotification = @"kJCPageControllerDidC
         _pageController.delegate = self;
         _pageController.dataSource = self;
         _pageController.view.frame = self.view.bounds;
-        [_pageController setViewControllers:@[self.pageContent[0]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+        [_pageController setViewControllers:@[self.pageContent[self.selectedIndex]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     }
     
     return _pageController;
-}
-
-#pragma mark -
-
-
-- (void)scrollToItemAtIndex:(NSInteger)index animated:(BOOL)animated {
-//    if (index >= 0 && index < self.viewControllers.count && (index != self.selectedIndex || !self.selectedItem)) {
-//        JCSegmentBarItem *item = (JCSegmentBarItem *)[self.segmentBar cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
-//        
-//        [self selected:item unSelected:self.selectedItem];
-//        
-//        [self adjustSegmentBarContentOffset:index];
-//      
-//        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:animated];
-//
-//        if (self.didSeletedController) {
-//            self.didSeletedController(self.selectedViewController);
-//        }
-//    }
-}
-
-- (void)selected:(JCSegmentBarItem *)selectedItem unSelected:(JCSegmentBarItem *)unSelectedItem {
-//    selectedItem.titleLabel.textColor = self.segmentBar.selectedTintColor;
-//    selectedItem.titleLabel.font = self.segmentBar.selectedFont;
-//    
-//    unSelectedItem.titleLabel.textColor = self.segmentBar.tintColor;
-//    unSelectedItem.titleLabel.font = self.segmentBar.unSelectedFont;
-//    
-//    CGFloat duration = unSelectedItem ? 0.3f : 0.0f;
-//    
-//    [UIView animateWithDuration:duration animations:^{
-//        selectedItem.transform = CGAffineTransformMakeScale(1.1, 1.1);
-//        unSelectedItem.transform = CGAffineTransformIdentity;
-//        
-//        CGRect frame = self.segmentBar.bottomLineView.frame;
-//        frame.origin.x = selectedItem.frame.origin.x + (selectedItem.frame.size.width - self.segmentBar.bottomLineView.frame.size.width)/2;
-//        self.segmentBar.bottomLineView.frame = frame;
-//    }];
-//    
-//    _selectedIndex = selectedItem.tag;
-//    self.selectedItem = selectedItem;
-//    self.selectedViewController = self.viewControllers[self.selectedIndex];
-}
-
-- (void)adjustSegmentBarContentOffset:(NSInteger)index {
-//    if (self.viewControllers.count > self.itemCount) {
-//        CGFloat itemWidth = [UIScreen mainScreen].bounds.size.width/self.itemCount;
-//        CGFloat offsetX = 0;
-//        
-//        if (index <= floor(self.itemCount/2)) {
-//            offsetX = 0;
-//        }
-//        else if (index >= (self.viewControllers.count - ceil(self.itemCount/2))) {
-//            offsetX = (self.viewControllers.count - self.itemCount) * itemWidth;
-//        }
-//        else {
-//            offsetX = (index - floor(self.itemCount/2)) * itemWidth;
-//        }
-//        
-//        [self.segmentBar setContentOffset:CGPointMake(offsetX, 0) animated:YES];
-//    }
 }
 
 @end

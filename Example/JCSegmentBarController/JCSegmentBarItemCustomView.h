@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JCSegmentBarItemCustomView : UIView
+@class JCSegmentBarItem;
+@interface JCSegmentBarItemCustomView : UICollectionViewCell
+
+@property (nonatomic, strong) JCSegmentBarItem *segmentBarItem;
 
 @end

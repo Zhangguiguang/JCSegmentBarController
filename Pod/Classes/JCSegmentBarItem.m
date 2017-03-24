@@ -21,24 +21,11 @@
 - (instancetype)initWithTitle:(NSString *)title image:(UIImage *)image {
     if (self = [super init]) {
         _title = title;
+        _titleColor = [UIColor colorWithRed:48/255.0f green:51/255.0f blue:59/255.0f alpha:1];
         _image = image;
-        
-        _titleAttributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0f]};
     }
     
     return self;
-}
-
-#pragma mark - setter/getter
-
-- (void)setTitleAttributes:(NSDictionary *)titleAttributes {
-    NSMutableDictionary *tempAttributes = [[NSMutableDictionary alloc] initWithDictionary:titleAttributes];
-    
-    if (_titleAttributes) {
-        [tempAttributes addEntriesFromDictionary:_titleAttributes];
-    }
-    
-    _titleAttributes = tempAttributes;
 }
 
 @end
