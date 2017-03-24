@@ -7,18 +7,18 @@
 //
 
 #import "JCSegmentBar.h"
-#import "JCSegmentBarItem.h"
+#import "JCSegmentBarItemView.h"
 #import "JCSegmentBarController.h"
+
+NSString *const kJCSegmentItemDidChangeNotification = @"kJCSegmentItemDidChangeNotification";
 
 @interface JCSegmentBar ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (nonatomic, weak) JCSegmentBarController *segmentBarController;
+@property (nonatomic, strong) UIView *itemBottomLineView;
 
 @property (nonatomic, copy) JCSegmentBarItemSeletedBlock seletedBlock;
 
-@property (nonatomic, assign) CGFloat itemWidth;
-
-@property (nonatomic, strong) UIView *lineView;
+@property (nonatomic, strong) id notificationObserver;
 
 @end
 
@@ -26,72 +26,59 @@
 
 static NSString * const reuseIdentifier = @"segmentBarItemId";
 
-- (id)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.sectionInset = UIEdgeInsetsZero;
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     flowLayout.minimumLineSpacing = 0;
     flowLayout.minimumInteritemSpacing = 0;
     
     if (self = [super initWithFrame:frame collectionViewLayout:flowLayout]) {
+        // add bottom border line
+        CALayer *bottomBorder = [CALayer layer];
+        bottomBorder.frame = CGRectMake(0, self.frame.size.height-0.5, self.contentSize.width, 0.5);
+        bottomBorder.backgroundColor = [UIColor colorWithRed:151/255.0f green:151/255.0f blue:151/255.0f alpha:1].CGColor;
+        [self.layer addSublayer:bottomBorder];
+        
+        // for collectionView
         self.delegate = self;
         self.dataSource = self;
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
-        [self registerClass:[JCSegmentBarItem class] forCellWithReuseIdentifier:reuseIdentifier];
+        [self registerClass:[JCSegmentBarItemView class] forCellWithReuseIdentifier:reuseIdentifier];
         
-        self.barTintColor = [UIColor colorWithRed:227/255.0f green:227/255.0f blue:227/255.0f alpha:1];
-        self.tintColor = [UIColor darkGrayColor];
-        self.selectedTintColor = [UIColor redColor];
-        self.translucent = YES;
-        self.height = 36.0f;
+        // other settings
+        self.barStyle = JCSegmentBarStyleDark;
+
+        [self addSubview:self.itemBottomLineView];
         
-        [self addSubview:self.bottomLineView];
-        [self addSubview:self.lineView];
+        self.notificationObserver = [[NSNotificationCenter defaultCenter] addObserverForName:kJCPageControllerDidChangeNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+            self.selectedIndex = [note.userInfo[@"selectIndex"] integerValue];
+            [self reloadData];
+            [UIView animateWithDuration:0.3f animations:^{
+                self.itemBottomLineView.frame = [self itemBottomLineViewFrame];
+            } completion:^(BOOL finished) {
+                
+            }];
+        }];
     }
     
     return self;
 }
 
-- (void)didMoveToSuperview {
-    self.segmentBarController = (JCSegmentBarController *)[self getViewController];
-    
-    self.itemWidth = [UIScreen mainScreen].bounds.size.width/MIN(self.segmentBarController.viewControllers.count, 5);
-    
-    CGFloat segmentBarWidth = [UIScreen mainScreen].bounds.size.width;
-    
-    if (self.translucent) {
-        self.alpha = 0.96;
-        CGFloat y = [UIApplication sharedApplication].statusBarFrame.size.height + self.segmentBarController.navigationController.navigationBar.frame.size.height;
-        self.frame = CGRectMake(0, y, segmentBarWidth, self.height);
-    }
-    else {
-        self.alpha = 1;
-        self.frame = CGRectMake(0, 0, segmentBarWidth, self.height);
-    }
-    
-    self.bottomLineView.frame = CGRectMake((self.itemWidth-self.itemWidth*0.7)/2, self.frame.size.height-2, self.itemWidth*0.7, 2);
-
-    #pragma clang diagnostic push
-    #pragma clang diagnostic ignored"-Wundeclared-selector"
-    [self.segmentBarController performSelector:@selector(associatedSegmentBarController) withObject:nil];
-    #pragma clang diagnostic pop
-}
-
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.lineView.frame = CGRectMake(0, self.frame.size.height-0.5, self.contentSize.width, 0.5);
+    self.itemBottomLineView.frame = [self itemBottomLineViewFrame];
 }
 
 - (void)didSeletedSegmentBarItem:(JCSegmentBarItemSeletedBlock)seletedBlock {
     self.seletedBlock = seletedBlock;
 }
 
-#pragma mark - UICollectionViewDelegate | UICollectionViewDataSource
+#pragma mark - UICollectionViewDelegate & UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.segmentBarController.viewControllers.count;
+    return self.items.count;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -99,92 +86,83 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UIViewController *vc = self.segmentBarController.viewControllers[indexPath.item];
+    JCSegmentBarItemView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 
-    JCSegmentBarItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    item.tag = indexPath.item;
-    item.badgeColor = self.selectedTintColor;
- 
-    if (vc.badgeValue && ![vc.badgeValue isEqualToString:@""]) {
-        item.title = [NSString stringWithFormat:@"%@ %@", vc.title, vc.badgeValue];
-    }
-    else {
-        item.title = vc.title;
+    JCSegmentBarItem *item = self.items[indexPath.item];
+    NSLog(@"___%ld,%ld", self.selectedIndex, indexPath.item);
+    if (self.selectedIndex == indexPath.item) {
+        item.titleAttributes = @{NSForegroundColorAttributeName: self.tintColor};
+    } else {
+        item.titleAttributes = @{NSForegroundColorAttributeName: self.unselectedTintColor};
     }
     
-    item.textColor = self.tintColor;
-   
-    #pragma clang diagnostic push
-    #pragma clang diagnostic ignored"-Wundeclared-selector"
-    [self.segmentBarController performSelector:@selector(associatedSegmentItem:indexPath:) withObject:item withObject:indexPath];
-    #pragma clang diagnostic pop
+    cell.segmentBarItem = item;
 
-    NSInteger selectedIndex = self.segmentBarController.selectedIndex;
-    
-    if (self.segmentBarController.selectedItem) {
-        if (selectedIndex == indexPath.item) {
-            [self.segmentBarController scrollToItemAtIndex:selectedIndex animated:NO];
-        }
-    }
-    else {
-        if ((selectedIndex + 1) == indexPath.item) {
-            [self.segmentBarController scrollToItemAtIndex:selectedIndex animated:NO];
-        }
-    }
-    
-    return item;
+    return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.seletedBlock) {
-        self.seletedBlock(indexPath.item);
-    }
+    self.selectedIndex = indexPath.item;
+     [collectionView reloadData];
+    [UIView animateWithDuration:0.3f animations:^{
+        self.itemBottomLineView.frame = [self itemBottomLineViewFrame];
+    } completion:^(BOOL finished) {
+       
+    }];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kJCSegmentItemDidChangeNotification object:nil userInfo:@{@"selectIndex": @(self.selectedIndex)}];
 }
 
 #pragma mark - setter/getter
 
-- (void)setBarTintColor:(UIColor *)barTintColor {
-    _barTintColor = barTintColor;
+- (void)setTintColor:(UIColor *)tintColor {
+    _tintColor = tintColor;
     
-    self.backgroundColor = _barTintColor;
+    self.itemBottomLineView.backgroundColor = _tintColor;
 }
 
-- (void)setSelectedTintColor:(UIColor *)selectedTintColor {
-    _selectedTintColor = selectedTintColor;
+- (void)setBarStyle:(JCSegmentBarStyle)barStyle {
+    _barStyle = barStyle;
     
-    self.bottomLineView.backgroundColor = _selectedTintColor;
+    if (barStyle == JCSegmentBarStyleLight) {
+        self.backgroundColor = [UIColor whiteColor];
+        self.tintColor = [UIColor colorWithRed:48/255.0f green:51/255.0f blue:59/255.0f alpha:1];
+        self.unselectedTintColor = [UIColor colorWithRed:155/255.0f green:157/255.0f blue:165/255.0f alpha:1];
+    } else if (barStyle == JCSegmentBarStyleDark) {
+        self.backgroundColor = [UIColor colorWithRed:48/255.0f green:51/255.0f blue:59/255.0f alpha:1];
+        self.tintColor = [UIColor colorWithRed:219/255.0f green:177/255.0f blue:119/255.0f alpha:1];
+        self.unselectedTintColor = [UIColor whiteColor];
+    }
 }
 
-- (UIView *)lineView {
-    if (!_lineView) {
-        _lineView = [[UIView alloc] initWithFrame:CGRectZero];
-        _lineView.backgroundColor = [UIColor lightGrayColor];
+- (void)setItems:(NSArray<JCSegmentBarItem *> *)items {
+    _items = items;
+}
+
+- (UIView *)itemBottomLineView {
+    if (!_itemBottomLineView) {
+        _itemBottomLineView = [[UIView alloc] initWithFrame:CGRectZero];
+        _itemBottomLineView.layer.cornerRadius = 1.0f;
+        _itemBottomLineView.layer.masksToBounds = YES;
+        _itemBottomLineView.backgroundColor = self.tintColor;
     }
     
-    return _lineView;
+    return _itemBottomLineView;
 }
 
-- (UIView *)bottomLineView {
-    if (!_bottomLineView) {
-        _bottomLineView = [[UIView alloc] initWithFrame:CGRectZero];
-    }
-    
-    return _bottomLineView;
+- (CGRect)itemBottomLineViewFrame {
+    return CGRectMake(self.selectedIndex * self.itemWidth + ((self.itemWidth - self.itemBottomLineWidth)/2), self.frame.size.height-2, self.itemBottomLineWidth, 2);
 }
 
-#pragma mark - private
-
-- (UIViewController *)getViewController {
-    UIResponder *responder = [self nextResponder];
-    
-    while (responder) {
-        if ([responder isKindOfClass:[UIViewController class]]) {
-            return (UIViewController *)responder;
-        }
-        responder = [responder nextResponder];
+- (void)setSelectedIndex:(NSInteger)selectedIndex {
+    if (selectedIndex < 0 || selectedIndex >= self.items.count) {
+        return;
     }
     
-    return nil;
+    _selectedIndex = selectedIndex;
+    
+    //- (void)setItems:(NSArray<UITabBarItem *> *)items animated:(BOOL)animated;
+    [self scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:selectedIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
 }
 
 @end

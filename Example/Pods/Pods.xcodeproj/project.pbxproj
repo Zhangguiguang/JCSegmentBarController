@@ -7,105 +7,100 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1DA4389A41829229A2E8FACEE028B5F1 /* JCSegmentBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 32936ACDE1D79F176143720C259B2890 /* JCSegmentBar.m */; };
-		37F3FBC600218DBF2974433257A0B2F3 /* JCSegmentBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D78F4E8015C92126328D3241586428C4 /* JCSegmentBarItem.m */; };
-		43C1DE767A5B0EC9E11215A55759EA9D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		474DFC9A4D094F44B572A73268C804C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		4D7EED208D55AB34B54DE6010229C005 /* JCSegmentBarController.h in Headers */ = {isa = PBXBuildFile; fileRef = 44BB86B7D0ECF95FB192421AA69FFDE5 /* JCSegmentBarController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8076F5672630E173618421983503A56E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		976ADF08E86DE7E6D1875E2FCAF3B41A /* Pods-JCSegmentBarController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E13C502B25E224AEDD9CE37D8B8CCF19 /* Pods-JCSegmentBarController-dummy.m */; };
-		9E8E6B9716C65D118E9A0AD06FE3ED22 /* JCSegmentBarItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D6409220E1C3DBBC633A2C7D4CDFCE51 /* JCSegmentBarItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A1416121D8A78CCE1FD46CFC542C0D87 /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FC2DB7DC3A7C194F3458EB0B0603AA /* Pods-Tests-dummy.m */; };
-		BF66D81D0DBACE5EF4E7639904F849C1 /* JCSegmentBarController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C37194801195ED1AAF7C818DD4C6B8 /* JCSegmentBarController-dummy.m */; };
-		D02DAB7A1E680880BEE40A05B0981642 /* JCSegmentBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B009F2FE4311D80B9B7BE65673CCEB68 /* JCSegmentBarController.m */; };
-		FC7608EA1782C6E42010A9A927683FFC /* JCSegmentBar.h in Headers */ = {isa = PBXBuildFile; fileRef = C96FEF2F2EC354B1112B77FD6CE40109 /* JCSegmentBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F4CC94411139D6F45BE134E3AE583DE /* JCSegmentBarItem.h in Headers */ = {isa = PBXBuildFile; fileRef = E05BB452E3A8AE865AC671E41BA75EC6 /* JCSegmentBarItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		348DA391E9F737FF16531E5763F2BCB2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		367867371CB21295EBBAB554D47F8CB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		41810E8D27BBF4DA7EFC6ECEF8C41490 /* JCSegmentBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C34300F6C0ECF86F71EE57B0A911ADC0 /* JCSegmentBarItem.m */; };
+		44EAF56F6260BEE02BFC92DA40F9374C /* JCSegmentBarController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C37194801195ED1AAF7C818DD4C6B8 /* JCSegmentBarController-dummy.m */; };
+		4C7C6D56F327E023DB19E3161ADDB223 /* JCSegmentBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 15D455EF1A2B9305E6ECEE2996C225EA /* JCSegmentBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50BC765892E1E657A66315F42921E430 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		5DD126B81CE44D6A4A8AA10C2BA2CED8 /* JCSegmentBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A8D4BBD44763113F1B9B3B479A42D8 /* JCSegmentBar.m */; };
+		75CDAE9C8BD5BC180EF9C20BEB8DAA45 /* JCSegmentBarController.h in Headers */ = {isa = PBXBuildFile; fileRef = 43C3C123412FC3E2384B86B0F4EFCCEA /* JCSegmentBarController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F8B8209A324AF7188C6EED92A5637BC /* JCSegmentBarItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C30E05DB8433A25764159920C7B1 /* JCSegmentBarItemView.m */; };
+		9E46604983C1E9F0B006C82D0845B8D5 /* JCSegmentBarItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = CBE2D390F6CA92A500F862420CF40B97 /* JCSegmentBarItemView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B95B167ABE4727E1D1E60683C0CFECC8 /* Pods-JCSegmentBarController_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AE045A335954ABD4E9CB6DE627F3EFD3 /* Pods-JCSegmentBarController_Example-dummy.m */; };
+		BD7C4E7C768EBEAC01B11E16F55465CF /* JCSegmentBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED527AAD470F5AEE62D8B448AFE342D /* JCSegmentBarController.m */; };
+		E2D8891AF461B76D3271EAB52D08DD58 /* Pods-JCSegmentBarController_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B441C164B8A291DEA87E6181F4BF20A /* Pods-JCSegmentBarController_Tests-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		272ACEFF3B0088349A33652E087966D7 /* PBXContainerItemProxy */ = {
+		70923D450FA0A541E066A0F26F46E698 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 34295E53A4306D3C5669E89619B2F481;
+			remoteGlobalIDString = C64E8A0068F9F8141953991E5E96DA0A;
 			remoteInfo = JCSegmentBarController;
 		};
-		9979F7A5492711BCEC1095B58C073304 /* PBXContainerItemProxy */ = {
+		E2C3C65DFD98E532517C6699D312B4BD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 34295E53A4306D3C5669E89619B2F481;
+			remoteGlobalIDString = C64E8A0068F9F8141953991E5E96DA0A;
 			remoteInfo = JCSegmentBarController;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09AA4BF2D388935FC99F1D7B42E63625 /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		198D8102F74C00F526232519F582BD4D /* Pods-JCSegmentBarController-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JCSegmentBarController-resources.sh"; sourceTree = "<group>"; };
-		2967917ABE257179E732F0DA640AD61E /* Pods-JCSegmentBarController-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JCSegmentBarController-frameworks.sh"; sourceTree = "<group>"; };
-		32936ACDE1D79F176143720C259B2890 /* JCSegmentBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JCSegmentBar.m; sourceTree = "<group>"; };
-		44BB86B7D0ECF95FB192421AA69FFDE5 /* JCSegmentBarController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JCSegmentBarController.h; sourceTree = "<group>"; };
+		062361A887DD8CED34F6F78A41757E26 /* Pods-JCSegmentBarController_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JCSegmentBarController_Tests-resources.sh"; sourceTree = "<group>"; };
+		15D455EF1A2B9305E6ECEE2996C225EA /* JCSegmentBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JCSegmentBar.h; sourceTree = "<group>"; };
+		23544CB3B58A263F5C6E68CB67EDD22C /* Pods-JCSegmentBarController_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JCSegmentBarController_Example-frameworks.sh"; sourceTree = "<group>"; };
+		235C42EBB42D9FF19FF18353320D36C4 /* Pods-JCSegmentBarController_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JCSegmentBarController_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		2AE3C30E05DB8433A25764159920C7B1 /* JCSegmentBarItemView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JCSegmentBarItemView.m; sourceTree = "<group>"; };
+		43C3C123412FC3E2384B86B0F4EFCCEA /* JCSegmentBarController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JCSegmentBarController.h; sourceTree = "<group>"; };
 		4D6A894D3E8CD9B0249629F2D2449661 /* JCSegmentBarController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JCSegmentBarController-prefix.pch"; sourceTree = "<group>"; };
-		543CE71CE9AACB7DCBC8868731B1C81C /* Pods-JCSegmentBarController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JCSegmentBarController.release.xcconfig"; sourceTree = "<group>"; };
-		5B9A8637D91360848D2BAE5501785664 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		5D9AFC597F81CA99B1E768A41CC2195B /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Tests.a"; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		58DB3810383829F1F43E201BDB2E4058 /* Pods-JCSegmentBarController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JCSegmentBarController_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		59A8D4BBD44763113F1B9B3B479A42D8 /* JCSegmentBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JCSegmentBar.m; sourceTree = "<group>"; };
 		61C37194801195ED1AAF7C818DD4C6B8 /* JCSegmentBarController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JCSegmentBarController-dummy.m"; sourceTree = "<group>"; };
+		6601941B13D9733655441DC314B326BC /* Pods-JCSegmentBarController_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JCSegmentBarController_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		73A67C7FBF05ED713079B808B0565D95 /* Pods-JCSegmentBarController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JCSegmentBarController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		75ADE1380B261FF629D52FEA2B31F7C3 /* JCSegmentBarController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JCSegmentBarController.xcconfig; sourceTree = "<group>"; };
-		7891D8603008DB784D16A489E164B8D2 /* Pods-Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-frameworks.sh"; sourceTree = "<group>"; };
-		7D9EA11FD0A499CD619A5B25E33FCACA /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		82B39817019C3CE7203131E21CA5D5CD /* libPods-JCSegmentBarController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-JCSegmentBarController.a"; path = "libPods-JCSegmentBarController.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8AEF5A9912384F37CF4EDDBCD1D66044 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		95D6D8DC2744F2889F70C144513BBEC3 /* Pods-JCSegmentBarController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JCSegmentBarController.debug.xcconfig"; sourceTree = "<group>"; };
-		B009F2FE4311D80B9B7BE65673CCEB68 /* JCSegmentBarController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JCSegmentBarController.m; sourceTree = "<group>"; };
-		B1C8CC8E76D12E769A9672EC3F3DCAA2 /* Pods-JCSegmentBarController-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JCSegmentBarController-acknowledgements.markdown"; sourceTree = "<group>"; };
-		B5FC2DB7DC3A7C194F3458EB0B0603AA /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
-		C80201A35EFD1B9E26D689A0234FE483 /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
-		C96FEF2F2EC354B1112B77FD6CE40109 /* JCSegmentBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JCSegmentBar.h; sourceTree = "<group>"; };
+		777FF94C94D1773D01BCC99D93017EE0 /* Pods-JCSegmentBarController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JCSegmentBarController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		7B441C164B8A291DEA87E6181F4BF20A /* Pods-JCSegmentBarController_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JCSegmentBarController_Tests-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		95965EFC1F46F04A14B91D3CFAE5597F /* libPods-JCSegmentBarController_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JCSegmentBarController_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABC0E81566997E35FDDCF546E80521FF /* Pods-JCSegmentBarController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JCSegmentBarController_Example.release.xcconfig"; sourceTree = "<group>"; };
+		AE045A335954ABD4E9CB6DE627F3EFD3 /* Pods-JCSegmentBarController_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JCSegmentBarController_Example-dummy.m"; sourceTree = "<group>"; };
+		AED527AAD470F5AEE62D8B448AFE342D /* JCSegmentBarController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JCSegmentBarController.m; sourceTree = "<group>"; };
+		B4256DE945A541E8002CCFC3511BAF4D /* libJCSegmentBarController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJCSegmentBarController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8F55D180593CA06CBE32DB4E41C6CCA /* Pods-JCSegmentBarController_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JCSegmentBarController_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		C34300F6C0ECF86F71EE57B0A911ADC0 /* JCSegmentBarItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JCSegmentBarItem.m; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D6409220E1C3DBBC633A2C7D4CDFCE51 /* JCSegmentBarItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JCSegmentBarItem.h; sourceTree = "<group>"; };
-		D78F4E8015C92126328D3241586428C4 /* JCSegmentBarItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JCSegmentBarItem.m; sourceTree = "<group>"; };
-		E13C502B25E224AEDD9CE37D8B8CCF19 /* Pods-JCSegmentBarController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JCSegmentBarController-dummy.m"; sourceTree = "<group>"; };
-		F80FB8FA8597190146FB99DEA3D3889A /* libJCSegmentBarController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libJCSegmentBarController.a; path = libJCSegmentBarController.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F93E36DE13C547BB1DF26503B1E39672 /* Pods-JCSegmentBarController-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JCSegmentBarController-acknowledgements.plist"; sourceTree = "<group>"; };
+		CBE2D390F6CA92A500F862420CF40B97 /* JCSegmentBarItemView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JCSegmentBarItemView.h; sourceTree = "<group>"; };
+		D02C897994C6CABF6CE14A7AD4EDB654 /* libPods-JCSegmentBarController_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JCSegmentBarController_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D88B52D1D8056117BCBC735D1EDD9CBA /* Pods-JCSegmentBarController_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JCSegmentBarController_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		DA5E7F2AC4A608AB4AC5D568DD49A788 /* Pods-JCSegmentBarController_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JCSegmentBarController_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		E05BB452E3A8AE865AC671E41BA75EC6 /* JCSegmentBarItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JCSegmentBarItem.h; sourceTree = "<group>"; };
+		E4ECA24E8C7443FEDB53AA315F96ACFD /* Pods-JCSegmentBarController_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JCSegmentBarController_Example-resources.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D050FF87D1BC299E8CC3779F5A957BDE /* Frameworks */ = {
+		9B865EBDD659A1566059E09CEA1EF897 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8076F5672630E173618421983503A56E /* Foundation.framework in Frameworks */,
+				50BC765892E1E657A66315F42921E430 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F4B3E16B1D683423622747438EB59457 /* Frameworks */ = {
+		9EECF44FBFA49DCC0D2438BF9DB074CB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43C1DE767A5B0EC9E11215A55759EA9D /* Foundation.framework in Frameworks */,
+				367867371CB21295EBBAB554D47F8CB0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F81BCA996C26A264AC5F1184E66FFE79 /* Frameworks */ = {
+		C13650B7F0108A7824F0FC0B18CEC8C7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				474DFC9A4D094F44B572A73268C804C6 /* Foundation.framework in Frameworks */,
+				348DA391E9F737FF16531E5763F2BCB2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		082A4D245AEA07364FCCD56413A9CF42 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				5C9F91A46B4FEEF1592B8B15A9768D65 /* Pods-JCSegmentBarController */,
-				99D65BBFF8939879CBCBCDD0426C57C7 /* Pods-Tests */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
 		18D8F8EF8C83D688B6D33725212AA6F7 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,38 +112,39 @@
 			path = "Example/Pods/Target Support Files/JCSegmentBarController";
 			sourceTree = "<group>";
 		};
-		55640BC6A7870D8852C5498147512108 /* Pod */ = {
+		3965331A287DE1BED43284CA7488719D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				E503E0CE74EC123058B78FF7EBBCFB27 /* Classes */,
+				15D455EF1A2B9305E6ECEE2996C225EA /* JCSegmentBar.h */,
+				59A8D4BBD44763113F1B9B3B479A42D8 /* JCSegmentBar.m */,
+				E05BB452E3A8AE865AC671E41BA75EC6 /* JCSegmentBarItem.h */,
+				C34300F6C0ECF86F71EE57B0A911ADC0 /* JCSegmentBarItem.m */,
+				CBE2D390F6CA92A500F862420CF40B97 /* JCSegmentBarItemView.h */,
+				2AE3C30E05DB8433A25764159920C7B1 /* JCSegmentBarItemView.m */,
+				43C3C123412FC3E2384B86B0F4EFCCEA /* JCSegmentBarController.h */,
+				AED527AAD470F5AEE62D8B448AFE342D /* JCSegmentBarController.m */,
 			);
-			name = Pod;
-			path = Pod;
-			sourceTree = "<group>";
-		};
-		5C9F91A46B4FEEF1592B8B15A9768D65 /* Pods-JCSegmentBarController */ = {
-			isa = PBXGroup;
-			children = (
-				B1C8CC8E76D12E769A9672EC3F3DCAA2 /* Pods-JCSegmentBarController-acknowledgements.markdown */,
-				F93E36DE13C547BB1DF26503B1E39672 /* Pods-JCSegmentBarController-acknowledgements.plist */,
-				E13C502B25E224AEDD9CE37D8B8CCF19 /* Pods-JCSegmentBarController-dummy.m */,
-				2967917ABE257179E732F0DA640AD61E /* Pods-JCSegmentBarController-frameworks.sh */,
-				198D8102F74C00F526232519F582BD4D /* Pods-JCSegmentBarController-resources.sh */,
-				95D6D8DC2744F2889F70C144513BBEC3 /* Pods-JCSegmentBarController.debug.xcconfig */,
-				543CE71CE9AACB7DCBC8868731B1C81C /* Pods-JCSegmentBarController.release.xcconfig */,
-			);
-			name = "Pods-JCSegmentBarController";
-			path = "Target Support Files/Pods-JCSegmentBarController";
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		6EF2C3F017CE8F2A11BC21891001F59E /* JCSegmentBarController */ = {
 			isa = PBXGroup;
 			children = (
-				55640BC6A7870D8852C5498147512108 /* Pod */,
+				B2E075845DF73836A92FD8382ABD14FC /* Pod */,
 				18D8F8EF8C83D688B6D33725212AA6F7 /* Support Files */,
 			);
 			name = JCSegmentBarController;
 			path = ../..;
+			sourceTree = "<group>";
+		};
+		7085926AAED04C0B0151669EC76F153C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B4256DE945A541E8002CCFC3511BAF4D /* libJCSegmentBarController.a */,
+				D02C897994C6CABF6CE14A7AD4EDB654 /* libPods-JCSegmentBarController_Example.a */,
+				95965EFC1F46F04A14B91D3CFAE5597F /* libPods-JCSegmentBarController_Tests.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
@@ -159,14 +155,23 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		78855445200E3209E70E3151ABD61486 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				99DB396BBE8707AF64128F334B7214A9 /* Pods-JCSegmentBarController_Example */,
+				98ED9115FDEF78081E22B08171ED9128 /* Pods-JCSegmentBarController_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				7F3BF79558D29C84917E4F45C45985E8 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				907B065A2D0558B96B3D418C11EFBBF9 /* Products */,
-				082A4D245AEA07364FCCD56413A9CF42 /* Targets Support Files */,
+				7085926AAED04C0B0151669EC76F153C /* Products */,
+				78855445200E3209E70E3151ABD61486 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,29 +183,42 @@
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		907B065A2D0558B96B3D418C11EFBBF9 /* Products */ = {
+		98ED9115FDEF78081E22B08171ED9128 /* Pods-JCSegmentBarController_Tests */ = {
 			isa = PBXGroup;
 			children = (
-				F80FB8FA8597190146FB99DEA3D3889A /* libJCSegmentBarController.a */,
-				82B39817019C3CE7203131E21CA5D5CD /* libPods-JCSegmentBarController.a */,
-				5D9AFC597F81CA99B1E768A41CC2195B /* libPods-Tests.a */,
+				D88B52D1D8056117BCBC735D1EDD9CBA /* Pods-JCSegmentBarController_Tests-acknowledgements.markdown */,
+				235C42EBB42D9FF19FF18353320D36C4 /* Pods-JCSegmentBarController_Tests-acknowledgements.plist */,
+				7B441C164B8A291DEA87E6181F4BF20A /* Pods-JCSegmentBarController_Tests-dummy.m */,
+				DA5E7F2AC4A608AB4AC5D568DD49A788 /* Pods-JCSegmentBarController_Tests-frameworks.sh */,
+				062361A887DD8CED34F6F78A41757E26 /* Pods-JCSegmentBarController_Tests-resources.sh */,
+				777FF94C94D1773D01BCC99D93017EE0 /* Pods-JCSegmentBarController_Tests.debug.xcconfig */,
+				58DB3810383829F1F43E201BDB2E4058 /* Pods-JCSegmentBarController_Tests.release.xcconfig */,
 			);
-			name = Products;
+			name = "Pods-JCSegmentBarController_Tests";
+			path = "Target Support Files/Pods-JCSegmentBarController_Tests";
 			sourceTree = "<group>";
 		};
-		99D65BBFF8939879CBCBCDD0426C57C7 /* Pods-Tests */ = {
+		99DB396BBE8707AF64128F334B7214A9 /* Pods-JCSegmentBarController_Example */ = {
 			isa = PBXGroup;
 			children = (
-				09AA4BF2D388935FC99F1D7B42E63625 /* Pods-Tests-acknowledgements.markdown */,
-				7D9EA11FD0A499CD619A5B25E33FCACA /* Pods-Tests-acknowledgements.plist */,
-				B5FC2DB7DC3A7C194F3458EB0B0603AA /* Pods-Tests-dummy.m */,
-				7891D8603008DB784D16A489E164B8D2 /* Pods-Tests-frameworks.sh */,
-				C80201A35EFD1B9E26D689A0234FE483 /* Pods-Tests-resources.sh */,
-				5B9A8637D91360848D2BAE5501785664 /* Pods-Tests.debug.xcconfig */,
-				8AEF5A9912384F37CF4EDDBCD1D66044 /* Pods-Tests.release.xcconfig */,
+				6601941B13D9733655441DC314B326BC /* Pods-JCSegmentBarController_Example-acknowledgements.markdown */,
+				B8F55D180593CA06CBE32DB4E41C6CCA /* Pods-JCSegmentBarController_Example-acknowledgements.plist */,
+				AE045A335954ABD4E9CB6DE627F3EFD3 /* Pods-JCSegmentBarController_Example-dummy.m */,
+				23544CB3B58A263F5C6E68CB67EDD22C /* Pods-JCSegmentBarController_Example-frameworks.sh */,
+				E4ECA24E8C7443FEDB53AA315F96ACFD /* Pods-JCSegmentBarController_Example-resources.sh */,
+				73A67C7FBF05ED713079B808B0565D95 /* Pods-JCSegmentBarController_Example.debug.xcconfig */,
+				ABC0E81566997E35FDDCF546E80521FF /* Pods-JCSegmentBarController_Example.release.xcconfig */,
 			);
-			name = "Pods-Tests";
-			path = "Target Support Files/Pods-Tests";
+			name = "Pods-JCSegmentBarController_Example";
+			path = "Target Support Files/Pods-JCSegmentBarController_Example";
+			sourceTree = "<group>";
+		};
+		B2E075845DF73836A92FD8382ABD14FC /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				3965331A287DE1BED43284CA7488719D /* Classes */,
+			);
+			path = Pod;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -211,43 +229,64 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E503E0CE74EC123058B78FF7EBBCFB27 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				C96FEF2F2EC354B1112B77FD6CE40109 /* JCSegmentBar.h */,
-				32936ACDE1D79F176143720C259B2890 /* JCSegmentBar.m */,
-				44BB86B7D0ECF95FB192421AA69FFDE5 /* JCSegmentBarController.h */,
-				B009F2FE4311D80B9B7BE65673CCEB68 /* JCSegmentBarController.m */,
-				D6409220E1C3DBBC633A2C7D4CDFCE51 /* JCSegmentBarItem.h */,
-				D78F4E8015C92126328D3241586428C4 /* JCSegmentBarItem.m */,
-			);
-			name = Classes;
-			path = Classes;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		953870709DAB678AA9895C576080DB5D /* Headers */ = {
+		FE522739F91388DC802055238461F996 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC7608EA1782C6E42010A9A927683FFC /* JCSegmentBar.h in Headers */,
-				4D7EED208D55AB34B54DE6010229C005 /* JCSegmentBarController.h in Headers */,
-				9E8E6B9716C65D118E9A0AD06FE3ED22 /* JCSegmentBarItem.h in Headers */,
+				4C7C6D56F327E023DB19E3161ADDB223 /* JCSegmentBar.h in Headers */,
+				75CDAE9C8BD5BC180EF9C20BEB8DAA45 /* JCSegmentBarController.h in Headers */,
+				1F4CC94411139D6F45BE134E3AE583DE /* JCSegmentBarItem.h in Headers */,
+				9E46604983C1E9F0B006C82D0845B8D5 /* JCSegmentBarItemView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		34295E53A4306D3C5669E89619B2F481 /* JCSegmentBarController */ = {
+		3B934EE8AB3CA5E695905EBD47BF4DCB /* Pods-JCSegmentBarController_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0B1D206B117B628F91851CC2109AED2E /* Build configuration list for PBXNativeTarget "JCSegmentBarController" */;
+			buildConfigurationList = A32519827161472BEF173847152ABD6E /* Build configuration list for PBXNativeTarget "Pods-JCSegmentBarController_Tests" */;
 			buildPhases = (
-				0C41549A3D32031E4853B04A1FB2EB1E /* Sources */,
-				D050FF87D1BC299E8CC3779F5A957BDE /* Frameworks */,
-				953870709DAB678AA9895C576080DB5D /* Headers */,
+				14EE5D131A01A2F163230AC33A251BDB /* Sources */,
+				9B865EBDD659A1566059E09CEA1EF897 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2122C0DBCB5CF6E19101DB5699C8C61C /* PBXTargetDependency */,
+			);
+			name = "Pods-JCSegmentBarController_Tests";
+			productName = "Pods-JCSegmentBarController_Tests";
+			productReference = 95965EFC1F46F04A14B91D3CFAE5597F /* libPods-JCSegmentBarController_Tests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		86868C977F1AC4750A8E21ADD0D5A777 /* Pods-JCSegmentBarController_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4AC1255FFC667E965C22FC0ABE94DF4 /* Build configuration list for PBXNativeTarget "Pods-JCSegmentBarController_Example" */;
+			buildPhases = (
+				860750E503B737060A2920F358B3D08C /* Sources */,
+				9EECF44FBFA49DCC0D2438BF9DB074CB /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A52015E6FE2AE15A02994EED059567EF /* PBXTargetDependency */,
+			);
+			name = "Pods-JCSegmentBarController_Example";
+			productName = "Pods-JCSegmentBarController_Example";
+			productReference = D02C897994C6CABF6CE14A7AD4EDB654 /* libPods-JCSegmentBarController_Example.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C64E8A0068F9F8141953991E5E96DA0A /* JCSegmentBarController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 76781029EE03325C070CA69F3817F89C /* Build configuration list for PBXNativeTarget "JCSegmentBarController" */;
+			buildPhases = (
+				F9698501CEE65114E99314907E73E40B /* Sources */,
+				C13650B7F0108A7824F0FC0B18CEC8C7 /* Frameworks */,
+				FE522739F91388DC802055238461F996 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -255,41 +294,7 @@
 			);
 			name = JCSegmentBarController;
 			productName = JCSegmentBarController;
-			productReference = F80FB8FA8597190146FB99DEA3D3889A /* libJCSegmentBarController.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		995E2FE5D107074650CF6CCF36735DEB /* Pods-JCSegmentBarController */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 70CA29CAE75D69E296659B1AA31D0A49 /* Build configuration list for PBXNativeTarget "Pods-JCSegmentBarController" */;
-			buildPhases = (
-				6055B01F17432F9431429E1B274DB600 /* Sources */,
-				F81BCA996C26A264AC5F1184E66FFE79 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				719D183AE68F97FE37EDD7299A614AF3 /* PBXTargetDependency */,
-			);
-			name = "Pods-JCSegmentBarController";
-			productName = "Pods-JCSegmentBarController";
-			productReference = 82B39817019C3CE7203131E21CA5D5CD /* libPods-JCSegmentBarController.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		F805A9A94B88424150BED8875537182F /* Pods-Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 598C074A12CC2BF2AA645CF814968134 /* Build configuration list for PBXNativeTarget "Pods-Tests" */;
-			buildPhases = (
-				002884141E348890AE230A7F8D005CD8 /* Sources */,
-				F4B3E16B1D683423622747438EB59457 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0D8DB3C353692FA00B9FE84AC20C0745 /* PBXTargetDependency */,
-			);
-			name = "Pods-Tests";
-			productName = "Pods-Tests";
-			productReference = 5D9AFC597F81CA99B1E768A41CC2195B /* libPods-Tests.a */;
+			productReference = B4256DE945A541E8002CCFC3511BAF4D /* libJCSegmentBarController.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -309,59 +314,60 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 907B065A2D0558B96B3D418C11EFBBF9 /* Products */;
+			productRefGroup = 7085926AAED04C0B0151669EC76F153C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				34295E53A4306D3C5669E89619B2F481 /* JCSegmentBarController */,
-				995E2FE5D107074650CF6CCF36735DEB /* Pods-JCSegmentBarController */,
-				F805A9A94B88424150BED8875537182F /* Pods-Tests */,
+				C64E8A0068F9F8141953991E5E96DA0A /* JCSegmentBarController */,
+				86868C977F1AC4750A8E21ADD0D5A777 /* Pods-JCSegmentBarController_Example */,
+				3B934EE8AB3CA5E695905EBD47BF4DCB /* Pods-JCSegmentBarController_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		002884141E348890AE230A7F8D005CD8 /* Sources */ = {
+		14EE5D131A01A2F163230AC33A251BDB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1416121D8A78CCE1FD46CFC542C0D87 /* Pods-Tests-dummy.m in Sources */,
+				E2D8891AF461B76D3271EAB52D08DD58 /* Pods-JCSegmentBarController_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0C41549A3D32031E4853B04A1FB2EB1E /* Sources */ = {
+		860750E503B737060A2920F358B3D08C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DA4389A41829229A2E8FACEE028B5F1 /* JCSegmentBar.m in Sources */,
-				BF66D81D0DBACE5EF4E7639904F849C1 /* JCSegmentBarController-dummy.m in Sources */,
-				D02DAB7A1E680880BEE40A05B0981642 /* JCSegmentBarController.m in Sources */,
-				37F3FBC600218DBF2974433257A0B2F3 /* JCSegmentBarItem.m in Sources */,
+				B95B167ABE4727E1D1E60683C0CFECC8 /* Pods-JCSegmentBarController_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6055B01F17432F9431429E1B274DB600 /* Sources */ = {
+		F9698501CEE65114E99314907E73E40B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				976ADF08E86DE7E6D1875E2FCAF3B41A /* Pods-JCSegmentBarController-dummy.m in Sources */,
+				5DD126B81CE44D6A4A8AA10C2BA2CED8 /* JCSegmentBar.m in Sources */,
+				44EAF56F6260BEE02BFC92DA40F9374C /* JCSegmentBarController-dummy.m in Sources */,
+				BD7C4E7C768EBEAC01B11E16F55465CF /* JCSegmentBarController.m in Sources */,
+				41810E8D27BBF4DA7EFC6ECEF8C41490 /* JCSegmentBarItem.m in Sources */,
+				8F8B8209A324AF7188C6EED92A5637BC /* JCSegmentBarItemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0D8DB3C353692FA00B9FE84AC20C0745 /* PBXTargetDependency */ = {
+		2122C0DBCB5CF6E19101DB5699C8C61C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = JCSegmentBarController;
-			target = 34295E53A4306D3C5669E89619B2F481 /* JCSegmentBarController */;
-			targetProxy = 9979F7A5492711BCEC1095B58C073304 /* PBXContainerItemProxy */;
+			target = C64E8A0068F9F8141953991E5E96DA0A /* JCSegmentBarController */;
+			targetProxy = E2C3C65DFD98E532517C6699D312B4BD /* PBXContainerItemProxy */;
 		};
-		719D183AE68F97FE37EDD7299A614AF3 /* PBXTargetDependency */ = {
+		A52015E6FE2AE15A02994EED059567EF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = JCSegmentBarController;
-			target = 34295E53A4306D3C5669E89619B2F481 /* JCSegmentBarController */;
-			targetProxy = 272ACEFF3B0088349A33652E087966D7 /* PBXContainerItemProxy */;
+			target = C64E8A0068F9F8141953991E5E96DA0A /* JCSegmentBarController */;
+			targetProxy = 70923D450FA0A541E066A0F26F46E698 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -410,29 +416,6 @@
 			};
 			name = Debug;
 		};
-		342472BC693B65F1BA6875020119C380 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75ADE1380B261FF629D52FEA2B31F7C3 /* JCSegmentBarController.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/JCSegmentBarController/JCSegmentBarController-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
 		44CDBB6D11DE06DB64D6268622BDC47E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -473,9 +456,32 @@
 			};
 			name = Release;
 		};
-		625B2AD256208AD9C9177ABB6EE57D0F /* Debug */ = {
+		5E200AD55C7D1C96E2E78F0FBB75FAA2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B9A8637D91360848D2BAE5501785664 /* Pods-Tests.debug.xcconfig */;
+			baseConfigurationReference = ABC0E81566997E35FDDCF546E80521FF /* Pods-JCSegmentBarController_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		920B21C3AFB634B0BCE8C5D873F90684 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75ADE1380B261FF629D52FEA2B31F7C3 /* JCSegmentBarController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -483,66 +489,20 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/JCSegmentBarController/JCSegmentBarController-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		98EE1BE5B0BE218794F6447BA3F8C7F4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 543CE71CE9AACB7DCBC8868731B1C81C /* Pods-JCSegmentBarController.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		C93C05F57508D4950F067093E5AFF140 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8AEF5A9912384F37CF4EDDBCD1D66044 /* Pods-Tests.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		DD850F3C6E70E46FB2F4D923FD95837B /* Release */ = {
+		A141F965167B7A0895829FA94E9A2CAC /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 75ADE1380B261FF629D52FEA2B31F7C3 /* JCSegmentBarController.xcconfig */;
 			buildSettings = {
@@ -565,9 +525,9 @@
 			};
 			name = Release;
 		};
-		E4B391441153A557384969C72AE55455 /* Debug */ = {
+		BB6D49DEFF188FA2027E22B3EC61CDAC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95D6D8DC2744F2889F70C144513BBEC3 /* Pods-JCSegmentBarController.debug.xcconfig */;
+			baseConfigurationReference = 777FF94C94D1773D01BCC99D93017EE0 /* Pods-JCSegmentBarController_Tests.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -588,18 +548,55 @@
 			};
 			name = Debug;
 		};
+		C7FFBEA9AB649417A1E89D8212958EFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73A67C7FBF05ED713079B808B0565D95 /* Pods-JCSegmentBarController_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		FC669AEE7E703C1809C652D24F561373 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58DB3810383829F1F43E201BDB2E4058 /* Pods-JCSegmentBarController_Tests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0B1D206B117B628F91851CC2109AED2E /* Build configuration list for PBXNativeTarget "JCSegmentBarController" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				342472BC693B65F1BA6875020119C380 /* Debug */,
-				DD850F3C6E70E46FB2F4D923FD95837B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -609,20 +606,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		598C074A12CC2BF2AA645CF814968134 /* Build configuration list for PBXNativeTarget "Pods-Tests" */ = {
+		76781029EE03325C070CA69F3817F89C /* Build configuration list for PBXNativeTarget "JCSegmentBarController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				625B2AD256208AD9C9177ABB6EE57D0F /* Debug */,
-				C93C05F57508D4950F067093E5AFF140 /* Release */,
+				920B21C3AFB634B0BCE8C5D873F90684 /* Debug */,
+				A141F965167B7A0895829FA94E9A2CAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		70CA29CAE75D69E296659B1AA31D0A49 /* Build configuration list for PBXNativeTarget "Pods-JCSegmentBarController" */ = {
+		A32519827161472BEF173847152ABD6E /* Build configuration list for PBXNativeTarget "Pods-JCSegmentBarController_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E4B391441153A557384969C72AE55455 /* Debug */,
-				98EE1BE5B0BE218794F6447BA3F8C7F4 /* Release */,
+				BB6D49DEFF188FA2027E22B3EC61CDAC /* Debug */,
+				FC669AEE7E703C1809C652D24F561373 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4AC1255FFC667E965C22FC0ABE94DF4 /* Build configuration list for PBXNativeTarget "Pods-JCSegmentBarController_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7FFBEA9AB649417A1E89D8212958EFD /* Debug */,
+				5E200AD55C7D1C96E2E78F0FBB75FAA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

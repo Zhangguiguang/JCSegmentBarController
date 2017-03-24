@@ -8,23 +8,30 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, JCSegmentBarStyle) {
+    JCSegmentBarStyleLight,
+    JCSegmentBarStyleDark,
+    JCSegmentBarStyleCustom
+};
+
+extern NSString *const kJCSegmentItemDidChangeNotification;
+
 @class JCSegmentBarItem;
 typedef void (^JCSegmentBarItemSeletedBlock)(NSInteger index);
 
 @interface JCSegmentBar : UICollectionView
 
+@property (nonatomic, assign) JCSegmentBarStyle barStyle;
+
+@property (nonatomic, copy) NSArray<JCSegmentBarItem *> *items;
+
+@property (nonatomic, assign) CGFloat itemWidth;
+@property (nonatomic, assign) CGFloat itemBottomLineWidth;
+
+@property (nonatomic, assign) NSInteger selectedIndex;
+
 @property (nonatomic, strong) UIColor *tintColor;
-@property (nonatomic, strong) UIColor *barTintColor;
-@property (nonatomic, strong) UIColor *selectedTintColor;
-
-@property (nonatomic, strong) UIFont *selectedFont;
-@property (nonatomic, strong) UIFont *unSelectedFont;
-
-@property (nonatomic, assign) CGFloat height;
-
-@property (nonatomic, strong) UIView *bottomLineView;
-
-@property (nonatomic, assign) BOOL translucent;
+@property (nonatomic, strong) UIColor *unselectedTintColor;
 
 - (void)didSeletedSegmentBarItem:(JCSegmentBarItemSeletedBlock)seletedBlock;
 

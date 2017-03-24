@@ -8,14 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JCSegmentBarItem : UICollectionViewCell
+@interface JCSegmentBarItem : NSObject
 
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *badgeValue;
+@property (nonatomic, strong) UIImage *image;
 
-@property (nonatomic, strong) UIColor *textColor;
-@property (nonatomic, strong) UIColor *badgeColor;
+@property (nonatomic, copy) NSDictionary *titleAttributes;
 
-@property (nonatomic, strong) UIFont *selectedFont;
-@property (nonatomic, strong) UIFont *unSelectedFont;
+- (instancetype)initWithTitle:(NSString *)title;
+- (instancetype)initWithImage:(UIImage *)image;
+- (instancetype)initWithTitle:(NSString *)title image:(UIImage *)image;
 
 @end

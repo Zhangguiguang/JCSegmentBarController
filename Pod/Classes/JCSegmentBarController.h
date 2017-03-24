@@ -9,39 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "JCSegmentBar.h"
 #import "JCSegmentBarItem.h"
+#import "JCSegmentBarItemView.h"
 
-@class JCSegmentBarController;
-@protocol JCSegmentBarControllerDelegate<NSObject>
-@optional
-- (void)segmentBarController:(JCSegmentBarController *)segmentBarController didSelectItem:(JCSegmentBarItem *)item;
-@end
+extern NSString *const kJCPageControllerDidChangeNotification;
 
 @interface JCSegmentBarController : UIViewController
 
-@property (nonatomic, strong) JCSegmentBar *segmentBar;
-
-@property (nonatomic, weak) id<JCSegmentBarControllerDelegate> delegate;
-
-@property (nonatomic, copy) NSArray *viewControllers;
-
 @property (nonatomic, assign) NSInteger selectedIndex;
-@property (nonatomic, weak) JCSegmentBarItem *selectedItem;
-@property (nonatomic, weak) UIViewController *selectedViewController;
 
-@property (nonatomic, copy) void (^didSeletedController)(UIViewController *controller);
-
-
-- (instancetype)initWithViewControllers:(NSArray *)viewControllers;
-
-- (void)scrollToItemAtIndex:(NSInteger)index animated:(BOOL)animated;
-
-@end
-
-@interface UIViewController (JCSegmentBarControllerItem)
-
-@property (nonatomic, copy) NSString *badgeValue;
-
-@property (nonatomic, strong, readonly) JCSegmentBarItem *segmentBarItem;
-@property (nonatomic, strong, readonly) JCSegmentBarController *segmentBarController;
+- (instancetype)initWithViewControllers:(NSArray<UIViewController *> *)viewControllers;
 
 @end

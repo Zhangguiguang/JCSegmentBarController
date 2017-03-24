@@ -2,10 +2,10 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, "8.0"
 
-target 'JCSegmentBarController' do
+target 'JCSegmentBarController_Example' do
   pod "JCSegmentBarController", :path => "../"
 end
 
-target 'Tests' do
+target 'JCSegmentBarController_Tests' do
   pod "JCSegmentBarController", :path => "../"
 end
