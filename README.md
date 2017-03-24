@@ -8,7 +8,7 @@
 
 Simple to use and support horizontally-scrolling.
 
-<img width="320" src="./ScreenShot.png"> 
+<img width="960" src="./ScreenShot.png"> 
 
 ## Installation
 
