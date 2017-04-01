@@ -19,8 +19,6 @@ NSString *const kJCSegmentItemDidChangeNotification = @"kJCSegmentItemDidChangeN
 
 @property (nonatomic, copy) JCSegmentBarItemSelectedBlock selectedBlock;
 
-@property (nonatomic, strong) id notificationObserver;
-
 @end
 
 @implementation JCSegmentBar
@@ -44,18 +42,27 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
         self.customItemViewName = NSStringFromClass([JCSegmentBarItemView class]);
         self.barStyle = JCSegmentBarStyleLight;
         [self addSubview:self.itemBottomLineView];
-        
-        self.notificationObserver = [[NSNotificationCenter defaultCenter] addObserverForName:kJCPageControllerDidChangeNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-            [self segmentBarItemDidChange:[NSIndexPath indexPathForItem:self.selectedIndex inSection:0] currentIndexPath:[NSIndexPath indexPathForItem:[note.userInfo[@"selectIndex"] integerValue] inSection:0]];
-        }];
     }
     
     return self;
 }
 
+- (void)didMoveToSuperview {
+    [super didMoveToSuperview];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSelectedIndex:) name:kJCPageControllerDidChangeNotification object:nil];
+}
+
+- (void)removeFromSuperview {
+    [super removeFromSuperview];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
-
+    
     [self.layer addSublayer:self.barBottomLineLayer];
     
     self.itemBottomLineView.frame = [self itemBottomLineViewFrame];
@@ -63,6 +70,12 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
 
 - (void)segmentBarItemDidSelected:(JCSegmentBarItemSelectedBlock)selectedBlock {
     self.selectedBlock = selectedBlock;
+}
+
+#pragma mark - NSNotificationCenter
+
+- (void)updateSelectedIndex:(NSNotification *)note {
+    [self segmentBarItemDidChange:[NSIndexPath indexPathForItem:self.selectedIndex inSection:0] currentIndexPath:[NSIndexPath indexPathForItem: [note.userInfo[@"selectIndex"] integerValue] inSection:0]];
 }
 
 #pragma mark - UICollectionViewDelegate & UICollectionViewDataSource
@@ -116,6 +129,8 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
 
 - (void)setItems:(NSArray<JCSegmentBarItem *> *)items {
     _items = items;
+
+    [self reloadData];
 }
 
 - (CALayer *)barBottomLineLayer {

@@ -15,8 +15,6 @@ NSString *const kJCPageControllerDidChangeNotification = @"kJCPageControllerDidC
 @property (nonatomic, strong) UIPageViewController *pageController;
 @property (nonatomic, copy) NSArray<UIViewController *> *pageContent;
 
-@property (nonatomic, strong) id notificationObserver;
-
 @end
 
 @implementation JCSegmentBarController
@@ -24,10 +22,6 @@ NSString *const kJCPageControllerDidChangeNotification = @"kJCPageControllerDidC
 - (instancetype)initWithViewControllers:(NSArray<UIViewController *> *)viewControllers {
     if (self = [super init]) {
         self.pageContent = viewControllers;
-        
-        self.notificationObserver = [[NSNotificationCenter defaultCenter] addObserverForName:kJCSegmentItemDidChangeNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-            self.selectedIndex = [note.userInfo[@"selectIndex"] integerValue];
-        }];
     }
 
     return self;
@@ -43,8 +37,23 @@ NSString *const kJCPageControllerDidChangeNotification = @"kJCPageControllerDidC
     [self.pageController didMoveToParentViewController:self];
 }
 
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self.notificationObserver];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSelectedIndex:) name:kJCSegmentItemDidChangeNotification object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - NSNotificationCenter
+
+- (void)updateSelectedIndex:(NSNotification *)note {
+    self.selectedIndex = [note.userInfo[@"selectIndex"] integerValue];
 }
 
 #pragma mark - UIPageViewControllerDelegate & UIPageViewControllerDataSource
