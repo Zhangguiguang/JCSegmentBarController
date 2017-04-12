@@ -14,8 +14,6 @@ typedef NS_ENUM(NSInteger, JCSegmentBarStyle) {
     JCSegmentBarStyleCustom
 };
 
-extern NSString *const kJCSegmentItemDidChangeNotification;
-
 @class JCSegmentBarItem;
 typedef void (^JCSegmentBarItemSelectedBlock)(NSInteger index);
 

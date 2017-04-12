@@ -56,17 +56,17 @@
 		75ADE1380B261FF629D52FEA2B31F7C3 /* JCSegmentBarController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JCSegmentBarController.xcconfig; sourceTree = "<group>"; };
 		777FF94C94D1773D01BCC99D93017EE0 /* Pods-JCSegmentBarController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JCSegmentBarController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7B441C164B8A291DEA87E6181F4BF20A /* Pods-JCSegmentBarController_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JCSegmentBarController_Tests-dummy.m"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		95965EFC1F46F04A14B91D3CFAE5597F /* libPods-JCSegmentBarController_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JCSegmentBarController_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		95965EFC1F46F04A14B91D3CFAE5597F /* libPods-JCSegmentBarController_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-JCSegmentBarController_Tests.a"; path = "libPods-JCSegmentBarController_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABC0E81566997E35FDDCF546E80521FF /* Pods-JCSegmentBarController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JCSegmentBarController_Example.release.xcconfig"; sourceTree = "<group>"; };
 		AE045A335954ABD4E9CB6DE627F3EFD3 /* Pods-JCSegmentBarController_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JCSegmentBarController_Example-dummy.m"; sourceTree = "<group>"; };
 		AED527AAD470F5AEE62D8B448AFE342D /* JCSegmentBarController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JCSegmentBarController.m; sourceTree = "<group>"; };
-		B4256DE945A541E8002CCFC3511BAF4D /* libJCSegmentBarController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJCSegmentBarController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4256DE945A541E8002CCFC3511BAF4D /* libJCSegmentBarController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libJCSegmentBarController.a; path = libJCSegmentBarController.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F55D180593CA06CBE32DB4E41C6CCA /* Pods-JCSegmentBarController_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JCSegmentBarController_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		C34300F6C0ECF86F71EE57B0A911ADC0 /* JCSegmentBarItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JCSegmentBarItem.m; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		CBE2D390F6CA92A500F862420CF40B97 /* JCSegmentBarItemView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JCSegmentBarItemView.h; sourceTree = "<group>"; };
-		D02C897994C6CABF6CE14A7AD4EDB654 /* libPods-JCSegmentBarController_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JCSegmentBarController_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D02C897994C6CABF6CE14A7AD4EDB654 /* libPods-JCSegmentBarController_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-JCSegmentBarController_Example.a"; path = "libPods-JCSegmentBarController_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D88B52D1D8056117BCBC735D1EDD9CBA /* Pods-JCSegmentBarController_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JCSegmentBarController_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		DA5E7F2AC4A608AB4AC5D568DD49A788 /* Pods-JCSegmentBarController_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JCSegmentBarController_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		E05BB452E3A8AE865AC671E41BA75EC6 /* JCSegmentBarItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JCSegmentBarItem.h; sourceTree = "<group>"; };
@@ -117,13 +117,14 @@
 			children = (
 				15D455EF1A2B9305E6ECEE2996C225EA /* JCSegmentBar.h */,
 				59A8D4BBD44763113F1B9B3B479A42D8 /* JCSegmentBar.m */,
+				43C3C123412FC3E2384B86B0F4EFCCEA /* JCSegmentBarController.h */,
+				AED527AAD470F5AEE62D8B448AFE342D /* JCSegmentBarController.m */,
 				E05BB452E3A8AE865AC671E41BA75EC6 /* JCSegmentBarItem.h */,
 				C34300F6C0ECF86F71EE57B0A911ADC0 /* JCSegmentBarItem.m */,
 				CBE2D390F6CA92A500F862420CF40B97 /* JCSegmentBarItemView.h */,
 				2AE3C30E05DB8433A25764159920C7B1 /* JCSegmentBarItemView.m */,
-				43C3C123412FC3E2384B86B0F4EFCCEA /* JCSegmentBarController.h */,
-				AED527AAD470F5AEE62D8B448AFE342D /* JCSegmentBarController.m */,
 			);
+			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -218,6 +219,7 @@
 			children = (
 				3965331A287DE1BED43284CA7488719D /* Classes */,
 			);
+			name = Pod;
 			path = Pod;
 			sourceTree = "<group>";
 		};

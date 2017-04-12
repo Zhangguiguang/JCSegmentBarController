@@ -10,12 +10,12 @@
 #import "JCSegmentBarItemView.h"
 #import "JCSegmentBarController.h"
 
-NSString *const kJCSegmentItemDidChangeNotification = @"kJCSegmentItemDidChangeNotification";
-
 @interface JCSegmentBar ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) UIView *itemBottomLineView;
 @property (nonatomic, strong) CALayer *barBottomLineLayer;
+
+@property (nonatomic, weak) JCSegmentBarController *segmentBarController;
 
 @property (nonatomic, copy) JCSegmentBarItemSelectedBlock selectedBlock;
 
@@ -47,35 +47,26 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
     return self;
 }
 
-- (void)didMoveToSuperview {
-    [super didMoveToSuperview];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSelectedIndex:) name:kJCPageControllerDidChangeNotification object:nil];
-}
-
-- (void)removeFromSuperview {
-    [super removeFromSuperview];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 - (void)layoutSubviews {
     [super layoutSubviews];
     
     [self.layer addSublayer:self.barBottomLineLayer];
     
     self.itemBottomLineView.frame = [self itemBottomLineViewFrame];
+    
+    if (!self.segmentBarController) {
+        self.segmentBarController = self.jc_viewController.childViewControllers.firstObject;
+        [self.segmentBarController setValue:self forKey:@"segmentBar"];
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+        [self.segmentBarController performSelectorOnMainThread:@selector(updateSelectedIndex:) withObject:@(self.selectedIndex) waitUntilDone:YES];
+#pragma clang diagnostic pop
+    }
 }
 
 - (void)segmentBarItemDidSelected:(JCSegmentBarItemSelectedBlock)selectedBlock {
     self.selectedBlock = selectedBlock;
-}
-
-#pragma mark - NSNotificationCenter
-
-- (void)updateSelectedIndex:(NSNotification *)note {
-    [self segmentBarItemDidChange:[NSIndexPath indexPathForItem:self.selectedIndex inSection:0] currentIndexPath:[NSIndexPath indexPathForItem: [note.userInfo[@"selectIndex"] integerValue] inSection:0]];
 }
 
 #pragma mark - UICollectionViewDelegate & UICollectionViewDataSource
@@ -100,10 +91,14 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self segmentBarItemDidChange:[NSIndexPath indexPathForItem:self.selectedIndex inSection:0] currentIndexPath:indexPath];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:kJCSegmentItemDidChangeNotification object:nil userInfo:@{@"selectIndex": @(self.selectedIndex)}];
+    [self segmentBarItemDidChange:indexPath];
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+    [self.segmentBarController performSelectorOnMainThread:@selector(updateSelectedIndex:) withObject:@(self.selectedIndex) waitUntilDone:YES];
+#pragma clang diagnostic pop
 }
+
 
 #pragma mark - setter/getter
 
@@ -176,22 +171,40 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
     return CGRectMake(self.selectedIndex * self.itemWidth + ((self.itemWidth - self.itemBottomLineWidth)/2), self.frame.size.height-2, self.itemBottomLineWidth, 2);
 }
 
-- (void)segmentBarItemDidChange:(NSIndexPath *)preIndexPath currentIndexPath:(NSIndexPath *)currentIndexPath {
-    UICollectionViewCell *prevCell = [self cellForItemAtIndexPath:preIndexPath];
+- (void)segmentBarItemDidChange:(NSIndexPath *)selectedIndexPath {
+    UICollectionViewCell *prevCell = [self cellForItemAtIndexPath:[NSIndexPath indexPathForItem:self.selectedIndex inSection:0]];
     JCSegmentBarItem *prevItem = self.items[self.selectedIndex];
     prevItem.titleColor = self.unselectedTintColor;
     [prevCell setValue:prevItem forKey:@"segmentBarItem"];
-
-    UICollectionViewCell *currentCell = [self cellForItemAtIndexPath:currentIndexPath];
-    JCSegmentBarItem *currentItem = self.items[currentIndexPath.item];
+    
+    UICollectionViewCell *currentCell = [self cellForItemAtIndexPath:selectedIndexPath];
+    JCSegmentBarItem *currentItem = self.items[selectedIndexPath.item];
     currentItem.titleColor = self.tintColor;
     [currentCell setValue:currentItem forKey:@"segmentBarItem"];
     
-    self.selectedIndex = currentIndexPath.item;
+    self.selectedIndex = selectedIndexPath.item;
+    
+    if (self.selectedBlock) {
+        self.selectedBlock(self.selectedIndex);
+    }
     
     [UIView animateWithDuration:0.3f animations:^{
         self.itemBottomLineView.frame = [self itemBottomLineViewFrame];
     }];
+}
+
+- (UIViewController *)jc_viewController {
+    UIResponder *responder = [self nextResponder];
+    
+    while (responder) {
+        if ([responder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *) responder;
+        }
+        
+        responder = [responder nextResponder];
+    }
+    
+    return nil;
 }
 
 @end

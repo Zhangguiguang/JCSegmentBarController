@@ -11,11 +11,7 @@
 #import "JCSegmentBarItem.h"
 #import "JCSegmentBarItemView.h"
 
-extern NSString *const kJCPageControllerDidChangeNotification;
-
 @interface JCSegmentBarController : UIViewController
-
-@property (nonatomic, assign) NSInteger selectedIndex;
 
 - (instancetype)initWithViewControllers:(NSArray<UIViewController *> *)viewControllers;
 

@@ -7,13 +7,16 @@
 //
 
 #import "JCSegmentBarController.h"
-
-NSString *const kJCPageControllerDidChangeNotification = @"kJCPageControllerDidChangeNotification";
+#import "JCSegmentBar.h"
 
 @interface JCSegmentBarController ()<UIPageViewControllerDelegate, UIPageViewControllerDataSource>
 
 @property (nonatomic, strong) UIPageViewController *pageController;
 @property (nonatomic, copy) NSArray<UIViewController *> *pageContent;
+
+@property (nonatomic, assign) NSInteger selectedIndex;
+
+@property (nonatomic, weak) JCSegmentBar *segmentBar;
 
 @end
 
@@ -35,25 +38,6 @@ NSString *const kJCPageControllerDidChangeNotification = @"kJCPageControllerDidC
     [self addChildViewController:self.pageController];
     [self.view addSubview:self.pageController.view];
     [self.pageController didMoveToParentViewController:self];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSelectedIndex:) name:kJCSegmentItemDidChangeNotification object:nil];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-#pragma mark - NSNotificationCenter
-
-- (void)updateSelectedIndex:(NSNotification *)note {
-    self.selectedIndex = [note.userInfo[@"selectIndex"] integerValue];
 }
 
 #pragma mark - UIPageViewControllerDelegate & UIPageViewControllerDataSource
@@ -90,11 +74,18 @@ NSString *const kJCPageControllerDidChangeNotification = @"kJCPageControllerDidC
     if (completed) {
         _selectedIndex = [self.pageContent indexOfObject:[pageViewController.viewControllers lastObject]];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:kJCPageControllerDidChangeNotification object:nil userInfo:@{@"selectIndex": @(self.selectedIndex)}];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+        [self.segmentBar performSelectorOnMainThread:@selector(segmentBarItemDidChange:) withObject:[NSIndexPath indexPathForItem:_selectedIndex inSection:0] waitUntilDone:YES];
+#pragma clang diagnostic pop
     }
 }
 
 #pragma mark - setter/getter
+
+- (void)updateSelectedIndex:(NSNumber *)selectedIndex {
+    self.selectedIndex = selectedIndex.integerValue;
+}
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
     if (selectedIndex < 0 || selectedIndex >= self.pageContent.count) {

@@ -1,5 +1,5 @@
 PODS:
-  - JCSegmentBarController (2.0.0)
+  - JCSegmentBarController (2.0.2)
 
 DEPENDENCIES:
   - JCSegmentBarController (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  JCSegmentBarController: 6de05536f9ecf8990e2133a062d15bdf8cf13d9d
+  JCSegmentBarController: d3629261ecbc22952a1f711a0671a14cb642e9d1
 
 PODFILE CHECKSUM: 7c7fcbec6cdc16833c94d57e4802cd07a7134058
 

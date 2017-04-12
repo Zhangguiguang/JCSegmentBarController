@@ -70,7 +70,6 @@
     
     JCSegmentBarController *segmentBarController = [[JCSegmentBarController alloc] initWithViewControllers:@[vc1, vc2, vc3]];
     segmentBarController.view.frame = CGRectMake(10, 100, [UIScreen mainScreen].bounds.size.width - 20, 300);
-    segmentBarController.selectedIndex = segmentBar.selectedIndex;
     [self addChildViewController:segmentBarController];
     [self.view addSubview:segmentBarController.view];
     [segmentBarController didMoveToParentViewController:self];
