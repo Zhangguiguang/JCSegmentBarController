@@ -27,26 +27,6 @@
     return self;
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
-    [self.titleLabel sizeToFit];
-    
-    CGFloat titleWidth = ceil(self.titleLabel.frame.size.width);
-    CGFloat titleHeight = ceil(self.titleLabel.frame.size.height);
-    
-    CGRect titleRect = CGRectMake((self.bounds.size.width-titleWidth)/2, (self.bounds.size.height-titleHeight)/2, titleWidth, titleHeight);
-    
-    
-    if (!self.badgeLabel.hidden) {
-        titleRect.origin.x -= 10;
-        
-        self.badgeLabel.frame = CGRectMake(CGRectGetMaxX(titleRect) + 4, (self.bounds.size.height-16)/2, 16, 16);
-    }
-    
-    self.titleLabel.frame = titleRect;
-}
-
 - (void)prepareForReuse {
     [super prepareForReuse];
     
@@ -62,9 +42,12 @@
     
     self.titleLabel.text = segmentBarItem.title;
     self.titleLabel.textColor = segmentBarItem.titleColor;
+    [self.titleLabel sizeToFit];
 
     self.badgeLabel.text = segmentBarItem.badgeValue;
     self.badgeLabel.hidden = !(segmentBarItem.badgeValue && ![segmentBarItem.badgeValue isEqualToString:@""]);
+    
+    [self updateTitleAndBadgeFrame];
 }
 
 - (UILabel *)titleLabel {
@@ -89,6 +72,23 @@
     }
     
     return _badgeLabel;
+}
+
+#pragma mark -
+
+- (void)updateTitleAndBadgeFrame {
+    CGFloat titleWidth = ceil(self.titleLabel.frame.size.width);
+    CGFloat titleHeight = ceil(self.titleLabel.frame.size.height);
+    
+    CGRect titleRect = CGRectMake((self.bounds.size.width-titleWidth)/2, (self.bounds.size.height-titleHeight)/2, titleWidth, titleHeight);
+    
+    if (!self.badgeLabel.hidden) {
+        titleRect.origin.x -= 10;
+        
+        self.badgeLabel.frame = CGRectMake(CGRectGetMaxX(titleRect) + 4, (self.bounds.size.height-16)/2, 16, 16);
+    }
+    
+    self.titleLabel.frame = titleRect;
 }
 
 @end
