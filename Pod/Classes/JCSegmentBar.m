@@ -182,6 +182,8 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
     currentItem.titleColor = self.tintColor;
     [currentCell setValue:currentItem forKey:@"segmentBarItem"];
     
+    [self reloadData];
+    
     self.selectedIndex = selectedIndexPath.item;
     
     if (self.selectedBlock) {
