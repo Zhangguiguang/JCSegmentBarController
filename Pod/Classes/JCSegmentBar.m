@@ -50,6 +50,7 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
 - (void)layoutSubviews {
     [super layoutSubviews];
     
+    self.barBottomLineLayer.frame = CGRectMake(0, self.frame.size.height-0.5, MAX(self.contentSize.width, [UIScreen mainScreen].bounds.size.width), 0.5);
     [self.layer addSublayer:self.barBottomLineLayer];
     
     self.itemBottomLineView.frame = [self itemBottomLineViewFrame];
@@ -131,7 +132,6 @@ static NSString * const reuseIdentifier = @"segmentBarItemId";
 - (CALayer *)barBottomLineLayer {
     if (!_barBottomLineLayer) {
         _barBottomLineLayer = [CALayer layer];
-        _barBottomLineLayer.frame = CGRectMake(0, self.frame.size.height-0.5, self.contentSize.width, 0.5);
         _barBottomLineLayer.backgroundColor = [UIColor colorWithRed:151/255.0f green:151/255.0f blue:151/255.0f alpha:1].CGColor;
     }
     

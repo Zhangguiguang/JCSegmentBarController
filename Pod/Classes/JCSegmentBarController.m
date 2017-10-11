@@ -95,8 +95,15 @@
     NSInteger direction = (_selectedIndex > selectedIndex) ? UIPageViewControllerNavigationDirectionReverse : UIPageViewControllerNavigationDirectionForward;
     
     _selectedIndex = selectedIndex;
-    
-    [self.pageController setViewControllers:@[self.pageContent[selectedIndex]] direction:direction animated:YES completion:nil];
+
+    __weak JCSegmentBarController *safeSelf = self;
+    [self.pageController setViewControllers:@[self.pageContent[selectedIndex]] direction:direction animated:YES completion:^(BOOL finished) {
+        if (finished) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [safeSelf.pageController setViewControllers:@[safeSelf.pageContent[selectedIndex]] direction:direction animated:NO completion:nil];
+            });
+        }
+    }];
 }
 
 - (UIPageViewController *)pageController {
